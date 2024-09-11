@@ -1,10 +1,15 @@
+import { useState } from 'react'
 import './App.css'
-import Countries from './components/main/Countries'
+import Dashboard from './components/main/Dashboard'
+import PokemonData from './context/PokemonData'
 
 function App() {
+  const [pokemonData, setPokemonData] = useState([])
   return (
     <>
-    <Countries />
+    <PokemonData.Provider value={{pokemonData, setPokemonData}}>
+    <Dashboard />
+    </PokemonData.Provider>
     </>
   )
 }
