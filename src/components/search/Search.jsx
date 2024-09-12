@@ -1,12 +1,14 @@
 import { useContext, useState } from "react";
 import PokemonData from "../../context/PokemonData";
+import PokemonPicture from "../../context/PokemonPicture";
 
 const url = import.meta.env.VITE_URL;
 
 const Search = () => {
     const [searchedPokemon, setSearchedPokemon] = useState("");
-    const {pokemonData, setPokemonData} = useContext(PokemonData)
-
+    const {pokemonData, setPokemonData} = useContext(PokemonData);
+    const {pokemonPicture, setPokemonPicture} = useContext(PokemonPicture)
+    
     async function test(e) {
         e.preventDefault();
 
@@ -25,6 +27,7 @@ const Search = () => {
             
             if (response.ok) {
                 setPokemonData(newData); 
+                setPokemonPicture({front: newData.sprites?.front_default, back: newData.sprites.back_default})
             } else {
                 console.log(newData.response);
                 alert("Pokemon not found!")
