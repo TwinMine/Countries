@@ -5,10 +5,15 @@ import { useContext } from "react";
 const Other = () => {
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
   const { pokemonData, setPokemonData } = useContext(PokemonData);
+  const topic = Object.keys(pokemonData.sprites)[8].slice(0,1).toUpperCase() + Object.keys(pokemonData.sprites)[8].slice(1).toLowerCase()
+  const smallTopic = (Object.keys(pokemonData.sprites.other).map((item) => item.slice(0,1).toUpperCase() + item.slice(1).toLowerCase().replace(/[_-]/g, ' ')))
+  console.log(smallTopic);
+  
   return (
     <>
+    <h2>{topic}</h2>
       <div className="dream-world">
-        <h3>Dream World</h3>
+        <h3>{smallTopic[0]}</h3>
         <button
           onClick={() =>
             setPokemonPicture({
@@ -22,7 +27,7 @@ const Other = () => {
       </div>
 
       <div className="home">
-        <h3>Home</h3>
+        <h3>{smallTopic[1]}</h3>
         <button
           onClick={() =>
             setPokemonPicture({
@@ -47,7 +52,7 @@ const Other = () => {
       </div>
 
       <div className="official-artwork">
-        <h3>Official-Artwork</h3>
+        <h3>{smallTopic[2]}</h3>
         <button
           onClick={() =>
             setPokemonPicture({
@@ -73,7 +78,7 @@ const Other = () => {
       </div>
 
       <div className="showdown">
-        <h3>Showdown</h3>
+        <h3>{smallTopic[3]}</h3>
         <button
           onClick={() =>
             setPokemonPicture({

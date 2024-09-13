@@ -5,11 +5,26 @@ import { useContext } from "react";
 const GenerationI = () => {
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
   const { pokemonData, setPokemonData } = useContext(PokemonData);
+
+  const topic = Object.keys(pokemonData.sprites.versions)[0].slice(0,1).toUpperCase() + Object.keys(pokemonData.sprites.versions)[0].slice(1, Object.keys(pokemonData.sprites.versions)[0].length -1).toLowerCase().replace(/[_-]/g, ' ') + Object.keys(pokemonData.sprites.versions)[0].replace(/[_-]/g, ' ').split(" ")[1].toUpperCase()
+
+  const formatTopic = (str) => {
+    return str
+      .replace(/[_-]/g, " ")
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  };
+
+  const smallTopic = Object.keys(
+    pokemonData.sprites.versions["generation-i"]
+  ).map(formatTopic);
+
     return (
         <>
-        <h2>Generation I</h2>
+        <h2>{topic}</h2>
         <div className="red-blue">
-          <h3>Red-blue</h3>
+          <h3>{smallTopic[0]}</h3>
             <button
               onClick={() =>
                 setPokemonPicture({
@@ -54,7 +69,7 @@ const GenerationI = () => {
           </div>
 
           <div className="yellow">
-            <h3>Yellow</h3>
+            <h3>{smallTopic[1]}</h3>
             <button
               onClick={() =>
                 setPokemonPicture({
