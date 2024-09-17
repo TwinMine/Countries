@@ -1,3 +1,15 @@
 .pokemon-card>img{
     width: 150px;
 }
+
+.type{
+    display: flex;align-items: center;
+}
+
+.type>img{
+    width: 1.5em;
+}
+
+.type>p{
+    margin-right: 10px;
+}

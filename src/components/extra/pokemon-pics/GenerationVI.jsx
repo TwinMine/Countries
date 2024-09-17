@@ -31,126 +31,213 @@ const GenerationVI = () => {
 
   return (
     <>
-      <h2>{topic}</h2>
-      <div className="omegaruby-alphasapphire">
-        <h3>{smallTopic[0]}</h3>
-        <button
-          onClick={() =>
-            setPokemonPicture({
-              front:
-                pokemonData.sprites.versions["generation-vi"][
-                  "omegaruby-alphasapphire"
-                ].front_default,
-              back: pokemonData.sprites.versions["generation-vi"][
-                "omegaruby-alphasapphire"
-              ].back_default,
-            })
-          }
-        >
-          Male
-        </button>
-        <button
-          onClick={() =>
-            setPokemonPicture({
-              front:
-                pokemonData.sprites.versions["generation-vi"][
-                  "omegaruby-alphasapphire"
-                ].front_female,
-              back: pokemonData.sprites.versions["generation-vi"][
-                "omegaruby-alphasapphire"
-              ].back_female,
-            })
-          }
-        >
-          Female
-        </button>
-        <button
-          onClick={() =>
-            setPokemonPicture({
-              front:
-                pokemonData.sprites.versions["generation-vi"][
-                  "omegaruby-alphasapphire"
-                ].front_shiny,
-              back: pokemonData.sprites.versions["generation-vi"][
-                "omegaruby-alphasapphire"
-              ].back_shiny,
-            })
-          }
-        >
-          Shiny-Male
-        </button>
-        <button
-          onClick={() =>
-            setPokemonPicture({
-              front:
-                pokemonData.sprites.versions["generation-vi"][
-                  "omegaruby-alphasapphire"
-                ].front_shiny_female,
-              back: pokemonData.sprites.versions["generation-vi"][
-                "omegaruby-alphasapphire"
-              ].back_shiny_female,
-            })
-          }
-        >
-          Shiny-Female
-        </button>
-      </div>
+      {(pokemonData &&
+        pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"]
+          .front_default) ||
+      (pokemonData &&
+        pokemonData.sprites.versions["generation-vi"]["x-y"].front_default) ? (
+        <h2>{topic}</h2>
+      ) : (
+        <></>
+      )}
 
-      <div className="x-y">
-        <h3>{smallTopic[1]}</h3>
-        <button
-          onClick={() =>
-            setPokemonPicture({
-              front:
-                pokemonData.sprites.versions["generation-vi"]["x-y"]
-                  .front_default,
-              back: pokemonData.sprites.versions["generation-vi"]["x-y"]
-                .back_default,
-            })
-          }
-        >
-          Male
-        </button>
-        <button
-          onClick={() =>
-            setPokemonPicture({
-              front:
-                pokemonData.sprites.versions["generation-vi"]["x-y"]
-                  .front_female,
-              back: pokemonData.sprites.versions["generation-vi"]["x-y"]
-                .back_female,
-            })
-          }
-        >
-          Female
-        </button>
-        <button
-          onClick={() =>
-            setPokemonPicture({
-              front:
-                pokemonData.sprites.versions["generation-vi"]["x-y"]
-                  .front_shiny,
-              back: pokemonData.sprites.versions["generation-vi"]["x-y"]
-                .back_shiny,
-            })
-          }
-        >
-          Shiny-Male
-        </button>
-        <button
-          onClick={() =>
-            setPokemonPicture({
-              front:
-                pokemonData.sprites.versions["generation-vi"]["x-y"]
-                  .front_shiny_female,
-              back: pokemonData.sprites.versions["generation-vi"]["x-y"]
-                .back_shiny_female,
-            })
-          }
-        >
-          Shiny-Female
-        </button>
-      </div>
+      {pokemonData &&
+      pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"]
+        .front_default ? (
+        <div className="omegaruby-alphasapphire">
+          {pokemonData &&
+          pokemonData.sprites.versions["generation-vi"][
+            "omegaruby-alphasapphire"
+          ].front_default ? (
+            <h3>{smallTopic[0]}</h3>
+          ) : (
+            <></>
+          )}
+          {pokemonData &&
+          pokemonData.sprites.versions["generation-vi"][
+            "omegaruby-alphasapphire"
+          ].front_default ? (
+            <button
+              onClick={() =>
+                setPokemonPicture({
+                  front:
+                    pokemonData.sprites.versions["generation-vi"][
+                      "omegaruby-alphasapphire"
+                    ].front_default,
+                  back: pokemonData.sprites.versions["generation-vi"][
+                    "omegaruby-alphasapphire"
+                  ].back_default,
+                })
+              }
+            >
+              Male
+            </button>
+          ) : (
+            <></>
+          )}
+
+          {pokemonData &&
+          pokemonData.sprites.versions["generation-vi"][
+            "omegaruby-alphasapphire"
+          ].front_female ? (
+            <button
+              onClick={() =>
+                setPokemonPicture({
+                  front:
+                    pokemonData.sprites.versions["generation-vi"][
+                      "omegaruby-alphasapphire"
+                    ].front_female,
+                  back: pokemonData.sprites.versions["generation-vi"][
+                    "omegaruby-alphasapphire"
+                  ].back_female,
+                })
+              }
+            >
+              Female
+            </button>
+          ) : (
+            <></>
+          )}
+
+          {pokemonData &&
+          pokemonData.sprites.versions["generation-vi"][
+            "omegaruby-alphasapphire"
+          ].front_shiny ? (
+            <button
+              onClick={() =>
+                setPokemonPicture({
+                  front:
+                    pokemonData.sprites.versions["generation-vi"][
+                      "omegaruby-alphasapphire"
+                    ].front_shiny,
+                  back: pokemonData.sprites.versions["generation-vi"][
+                    "omegaruby-alphasapphire"
+                  ].back_shiny,
+                })
+              }
+            >
+              Shiny-Male
+            </button>
+          ) : (
+            <></>
+          )}
+
+          {pokemonData &&
+          pokemonData.sprites.versions["generation-vi"][
+            "omegaruby-alphasapphire"
+          ].front_shiny_female ? (
+            <button
+              onClick={() =>
+                setPokemonPicture({
+                  front:
+                    pokemonData.sprites.versions["generation-vi"][
+                      "omegaruby-alphasapphire"
+                    ].front_shiny_female,
+                  back: pokemonData.sprites.versions["generation-vi"][
+                    "omegaruby-alphasapphire"
+                  ].back_shiny_female,
+                })
+              }
+            >
+              Shiny-Female
+            </button>
+          ) : (
+            <></>
+          )}
+        </div>
+      ) : (
+        <></>
+      )}
+
+      {pokemonData &&
+      pokemonData.sprites.versions["generation-vi"]["x-y"].front_default ? (
+        <div className="x-y">
+          {pokemonData &&
+          pokemonData.sprites.versions["generation-vi"]["x-y"].front_default ? (
+            <h3>{smallTopic[1]}</h3>
+          ) : (
+            <></>
+          )}
+          {pokemonData &&
+          pokemonData.sprites.versions["generation-vi"]["x-y"].front_default ? (
+            <button
+              onClick={() =>
+                setPokemonPicture({
+                  front:
+                    pokemonData.sprites.versions["generation-vi"]["x-y"]
+                      .front_default,
+                  back: pokemonData.sprites.versions["generation-vi"]["x-y"]
+                    .back_default,
+                })
+              }
+            >
+              Male
+            </button>
+          ) : (
+            <></>
+          )}
+
+          {pokemonData &&
+          pokemonData.sprites.versions["generation-vi"]["x-y"].front_female ? (
+            <button
+              onClick={() =>
+                setPokemonPicture({
+                  front:
+                    pokemonData.sprites.versions["generation-vi"]["x-y"]
+                      .front_female,
+                  back: pokemonData.sprites.versions["generation-vi"]["x-y"]
+                    .back_female,
+                })
+              }
+            >
+              Female
+            </button>
+          ) : (
+            <></>
+          )}
+
+          {pokemonData &&
+          pokemonData.sprites.versions["generation-vi"]["x-y"].front_shiny ? (
+            <button
+              onClick={() =>
+                setPokemonPicture({
+                  front:
+                    pokemonData.sprites.versions["generation-vi"]["x-y"]
+                      .front_shiny,
+                  back: pokemonData.sprites.versions["generation-vi"]["x-y"]
+                    .back_shiny,
+                })
+              }
+            >
+              Shiny-Male
+            </button>
+          ) : (
+            <></>
+          )}
+
+          {pokemonData &&
+          pokemonData.sprites.versions["generation-vi"]["x-y"]
+            .front_shiny_female ? (
+            <button
+              onClick={() =>
+                setPokemonPicture({
+                  front:
+                    pokemonData.sprites.versions["generation-vi"]["x-y"]
+                      .front_shiny_female,
+                  back: pokemonData.sprites.versions["generation-vi"]["x-y"]
+                    .back_shiny_female,
+                })
+              }
+            >
+              Shiny-Female
+            </button>
+          ) : (
+            <></>
+          )}
+        </div>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

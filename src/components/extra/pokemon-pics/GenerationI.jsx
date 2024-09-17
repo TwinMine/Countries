@@ -6,7 +6,16 @@ const GenerationI = () => {
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
   const { pokemonData, setPokemonData } = useContext(PokemonData);
 
-  const topic = Object.keys(pokemonData.sprites.versions)[0].slice(0,1).toUpperCase() + Object.keys(pokemonData.sprites.versions)[0].slice(1, Object.keys(pokemonData.sprites.versions)[0].length -1).toLowerCase().replace(/[_-]/g, ' ') + Object.keys(pokemonData.sprites.versions)[0].replace(/[_-]/g, ' ').split(" ")[1].toUpperCase()
+  const topic =
+    Object.keys(pokemonData.sprites.versions)[0].slice(0, 1).toUpperCase() +
+    Object.keys(pokemonData.sprites.versions)[0]
+      .slice(1, Object.keys(pokemonData.sprites.versions)[0].length - 1)
+      .toLowerCase()
+      .replace(/[_-]/g, " ") +
+    Object.keys(pokemonData.sprites.versions)[0]
+      .replace(/[_-]/g, " ")
+      .split(" ")[1]
+      .toUpperCase();
 
   const formatTopic = (str) => {
     return str
@@ -20,101 +29,162 @@ const GenerationI = () => {
     pokemonData.sprites.versions["generation-i"]
   ).map(formatTopic);
 
-    return (
-        <>
-        <h2>{topic}</h2>
-        <div className="red-blue">
-          <h3>{smallTopic[0]}</h3>
-            <button
-              onClick={() =>
-                setPokemonPicture({
-                  front:
-                    pokemonData.sprites.versions["generation-i"]["red-blue"]
-                      .front_default,
-                  back: pokemonData.sprites.versions["generation-i"]["red-blue"]
-                    .back_default,
-                })
-              }
-            >
-              Normal
-            </button>
+  return (
+    <>
+      {(pokemonData &&
+        pokemonData.sprites.versions["generation-i"]["red-blue"]
+          .front_default) ||
+      (pokemonData &&
+        pokemonData.sprites.versions["generation-i"]["yellow"]
+          .front_default) ? (
+        <div>
+          <h2>{topic}</h2>
+          <div className="red-blue">
+            {pokemonData &&
+            pokemonData.sprites.versions["generation-i"]["red-blue"]
+              .front_default ? (
+              <h3>{smallTopic[0]}</h3>
+            ) : (
+              <></>
+            )}
+            {pokemonData &&
+            pokemonData.sprites.versions["generation-i"]["red-blue"]
+              .front_default ? (
+              <button
+                onClick={() =>
+                  setPokemonPicture({
+                    front:
+                      pokemonData.sprites.versions["generation-i"]["red-blue"]
+                        .front_default,
+                    back: pokemonData.sprites.versions["generation-i"][
+                      "red-blue"
+                    ].back_default,
+                  })
+                }
+              >
+                Normal
+              </button>
+            ) : (
+              <></>
+            )}
 
-            <button
-              onClick={() =>
-                setPokemonPicture({
-                  front:
-                    pokemonData.sprites.versions["generation-i"]["red-blue"]
-                      .front_gray,
-                  back: pokemonData.sprites.versions["generation-i"]["red-blue"]
-                    .back_gray,
-                })
-              }
-            >
-              Gray
-            </button>
+            {pokemonData &&
+            pokemonData.sprites.versions["generation-i"]["red-blue"]
+              .front_gray ? (
+              <button
+                onClick={() =>
+                  setPokemonPicture({
+                    front:
+                      pokemonData.sprites.versions["generation-i"]["red-blue"]
+                        .front_gray,
+                    back: pokemonData.sprites.versions["generation-i"][
+                      "red-blue"
+                    ].back_gray,
+                  })
+                }
+              >
+                Gray
+              </button>
+            ) : (
+              <></>
+            )}
 
-            <button
-              onClick={() =>
-                setPokemonPicture({
-                  front:
-                    pokemonData.sprites.versions["generation-i"]["red-blue"]
-                      .front_transparent,
-                  back: pokemonData.sprites.versions["generation-i"]["red-blue"]
-                    .back_transparent,
-                })
-              }
-            >
-              Transparent
-            </button>
+            {pokemonData &&
+            pokemonData.sprites.versions["generation-i"]["red-blue"]
+              .front_transparent ? (
+              <button
+                onClick={() =>
+                  setPokemonPicture({
+                    front:
+                      pokemonData.sprites.versions["generation-i"]["red-blue"]
+                        .front_transparent,
+                    back: pokemonData.sprites.versions["generation-i"][
+                      "red-blue"
+                    ].back_transparent,
+                  })
+                }
+              >
+                Transparent
+              </button>
+            ) : (
+              <></>
+            )}
           </div>
 
           <div className="yellow">
-            <h3>{smallTopic[1]}</h3>
-            <button
-              onClick={() =>
-                setPokemonPicture({
-                  front:
-                    pokemonData.sprites.versions["generation-i"]["yellow"]
-                      .front_default,
-                  back: pokemonData.sprites.versions["generation-i"]["yellow"]
-                    .back_default,
-                })
-              }
-            >
-              Normal
-            </button>
+            {pokemonData &&
+            pokemonData.sprites.versions["generation-i"]["yellow"]
+              .front_default ? (
+              <h3>{smallTopic[1]}</h3>
+            ) : (
+              <></>
+            )}
+            {pokemonData &&
+            pokemonData.sprites.versions["generation-i"]["yellow"]
+              .front_default ? (
+              <button
+                onClick={() =>
+                  setPokemonPicture({
+                    front:
+                      pokemonData.sprites.versions["generation-i"]["yellow"]
+                        .front_default,
+                    back: pokemonData.sprites.versions["generation-i"]["yellow"]
+                      .back_default,
+                  })
+                }
+              >
+                Normal
+              </button>
+            ) : (
+              <></>
+            )}
 
-            <button
-              onClick={() =>
-                setPokemonPicture({
-                  front:
-                    pokemonData.sprites.versions["generation-i"]["yellow"]
-                      .front_gray,
-                  back: pokemonData.sprites.versions["generation-i"]["yellow"]
-                    .back_gray,
-                })
-              }
-            >
-              Gray
-            </button>
+            {pokemonData &&
+            pokemonData.sprites.versions["generation-i"]["yellow"]
+              .front_gray ? (
+              <button
+                onClick={() =>
+                  setPokemonPicture({
+                    front:
+                      pokemonData.sprites.versions["generation-i"]["yellow"]
+                        .front_gray,
+                    back: pokemonData.sprites.versions["generation-i"]["yellow"]
+                      .back_gray,
+                  })
+                }
+              >
+                Gray
+              </button>
+            ) : (
+              <></>
+            )}
 
-            <button
-              onClick={() =>
-                setPokemonPicture({
-                  front:
-                    pokemonData.sprites.versions["generation-i"]["yellow"]
-                      .front_transparent,
-                  back: pokemonData.sprites.versions["generation-i"]["yellow"]
-                    .back_transparent,
-                })
-              }
-            >
-              Transparent
-            </button>
+            {pokemonData &&
+            pokemonData.sprites.versions["generation-i"]["yellow"]
+              .front_transparent ? (
+              <button
+                onClick={() =>
+                  setPokemonPicture({
+                    front:
+                      pokemonData.sprites.versions["generation-i"]["yellow"]
+                        .front_transparent,
+                    back: pokemonData.sprites.versions["generation-i"]["yellow"]
+                      .back_transparent,
+                  })
+                }
+              >
+                Transparent
+              </button>
+            ) : (
+              <></>
+            )}
           </div>
-        
-        </>
-    )
-}
+        </div>
+      ) : (
+        <></>
+      )}
+    </>
+  );
+};
 
-export default GenerationI
+export default GenerationI;

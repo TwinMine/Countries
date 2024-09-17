@@ -11,10 +11,12 @@ const Other = () => {
   
   return (
     <>
+    {pokemonData && pokemonData.sprites.other.dream_world.front_default || pokemonData && pokemonData.sprites.other["official-artwork"].front_default || pokemonData.sprites.other.showdown.front_default ? <div>
     <h2>{topic}</h2>
       <div className="dream-world">
-        <h3>{smallTopic[0]}</h3>
-        <button
+      {pokemonData && pokemonData.sprites.other.dream_world.front_default ? <h3>{smallTopic[0]}</h3> : <></>}
+        
+        {pokemonData && pokemonData.sprites.other.dream_world.front_default ? <button
           onClick={() =>
             setPokemonPicture({
               front: pokemonData.sprites.other.dream_world.front_default,
@@ -23,12 +25,14 @@ const Other = () => {
           }
         >
           Dream-World
-        </button>
+        </button> : <></>}
+        
       </div>
 
       <div className="home">
-        <h3>{smallTopic[1]}</h3>
-        <button
+      {pokemonData && pokemonData.sprites.other.home.front_default ? <h3>{smallTopic[1]}</h3> : <></>}
+        
+        {pokemonData && pokemonData.sprites.other.home.front_default ? <button
           onClick={() =>
             setPokemonPicture({
               front: pokemonData.sprites.other.home.front_default,
@@ -37,9 +41,9 @@ const Other = () => {
           }
         >
           Home
-        </button>
-
-        <button
+        </button> : <></>}
+        
+{pokemonData && pokemonData.sprites.other.home.front_shiny ? <button
           onClick={() =>
             setPokemonPicture({
               front: pokemonData.sprites.other.home.front_shiny,
@@ -48,12 +52,13 @@ const Other = () => {
           }
         >
           Home-Shiny
-        </button>
+        </button> : <></>}
+        
       </div>
 
       <div className="official-artwork">
-        <h3>{smallTopic[2]}</h3>
-        <button
+        {pokemonData.sprites.other["official-artwork"].front_default ? <h3>{smallTopic[2]}</h3> : <></>}
+        {pokemonData.sprites.other["official-artwork"].front_default ? <button
           onClick={() =>
             setPokemonPicture({
               front:
@@ -63,9 +68,9 @@ const Other = () => {
           }
         >
           Official-artwork
-        </button>
-
-        <button
+        </button> : <></>}
+        
+       {pokemonData && pokemonData.sprites.other["official-artwork"].front_shiny ? <button
           onClick={() =>
             setPokemonPicture({
               front: pokemonData.sprites.other["official-artwork"].front_shiny,
@@ -74,12 +79,12 @@ const Other = () => {
           }
         >
           Official-artwork
-        </button>
+        </button> : <></>}
+        
       </div>
-
+          {pokemonData && pokemonData.sprites.other.showdown.front_default ? <h3>{smallTopic[3]}</h3> : <></>}
       <div className="showdown">
-        <h3>{smallTopic[3]}</h3>
-        <button
+      {pokemonData && pokemonData.sprites.other.showdown.front_default ? <button
           onClick={() =>
             setPokemonPicture({
               front: pokemonData.sprites.other.showdown.front_default,
@@ -88,8 +93,8 @@ const Other = () => {
           }
         >
           Male-Showdown
-        </button>
-        <button
+        </button> : <></>}
+        {pokemonData && pokemonData.sprites.other.showdown.front_female ? <button
           onClick={() =>
             setPokemonPicture({
               front: pokemonData.sprites.other.showdown.front_female,
@@ -98,8 +103,8 @@ const Other = () => {
           }
         >
           Female-Showdown
-        </button>
-        <button
+        </button> : <></>}
+        {pokemonData && pokemonData.sprites.other.showdown.front_shiny ? <button
           onClick={() =>
             setPokemonPicture({
               front: pokemonData.sprites.other.showdown.front_shiny,
@@ -108,8 +113,8 @@ const Other = () => {
           }
         >
           Shiny-Male-Showdown
-        </button>
-        <button
+        </button> : <></>}
+        {pokemonData && pokemonData.sprites.other.showdown.front_shiny_female ? <button
           onClick={() =>
             setPokemonPicture({
               front: pokemonData.sprites.other.showdown.front_shiny_female,
@@ -118,8 +123,10 @@ const Other = () => {
           }
         >
           Shiny-Female-Shodown
-        </button>
-      </div>
+        </button> : <></>}
+        
+      </div></div> : <></>}
+    
     </>
   );
 };
