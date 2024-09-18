@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
+
+
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: "Permanent Marker", cursive;
+}
+
+h2{
+    font-family: "Rubik Mono One", monospace;
+}
+
+h3{
+    font-family: "Passion One", Arial, Helvetica, sans-serif;
+}

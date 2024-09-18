@@ -7,7 +7,6 @@ const Other = () => {
   const { pokemonData, setPokemonData } = useContext(PokemonData);
   const topic = Object.keys(pokemonData.sprites)[8].slice(0,1).toUpperCase() + Object.keys(pokemonData.sprites)[8].slice(1).toLowerCase()
   const smallTopic = (Object.keys(pokemonData.sprites.other).map((item) => item.slice(0,1).toUpperCase() + item.slice(1).toLowerCase().replace(/[_-]/g, ' ')))
-  console.log(smallTopic);
   
   return (
     <>

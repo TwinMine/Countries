@@ -16,7 +16,7 @@ const Search = () => {
             return alert("Type in your favorite pokemon")
         }
         try {
-            const response = await fetch(`${url}/${searchedPokemon}`, { 
+            const response = await fetch(`${url}/${searchedPokemon.toLowerCase()}`, { 
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

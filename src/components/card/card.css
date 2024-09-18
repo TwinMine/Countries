@@ -1,15 +1,45 @@
-.pokemon-card>img{
+.pokemon-card{
+    width: max-content;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+    display: flex;
+    flex-direction: column;
+    border: #808080 solid 20px;
+}
+
+.pokemon-card>div>img{
     width: 150px;
 }
 
+.type-container{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    width: max-content;
+}
+
+.type-container>p{
+    text-align: center;
+}
+
+.type-div{
+    display: flex;
+}
+
 .type{
-    display: flex;align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .type>img{
     width: 1.5em;
 }
 
-.type>p{
+.type>p, .type>img{
     margin-right: 10px;
+}
+
+.card-informations{
+    background-color: antiquewhite;
 }
