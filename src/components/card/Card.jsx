@@ -2,12 +2,14 @@ import { useContext } from "react";
 import PokemonData from "../../context/PokemonData";
 import PokemonPicture from "../../context/PokemonPicture";
 import { cardColor } from "../data/cardColor";
-import defaultPic from "/public/not-available.png";
+import defaultPic from "/not-available.png";
 import "./card.css";
+import SecondDataFetch from "../../context/SecondDataFetch";
 
 const Card = () => {
   const { pokemonData, setPokemonData } = useContext(PokemonData);
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
+  const {secondDataFetch, setSecondDataFetch} = useContext(SecondDataFetch)
   const pokemonName = pokemonData.name;
   const cardBackground =
     pokemonData?.types?.[0]?.type &&
@@ -20,6 +22,9 @@ const Card = () => {
   const weight = pokemonData.weight / 10;
   const height = pokemonData.height / 10;
   const baseExperience = pokemonData.base_experience;
+  const text = secondDataFetch.flavor_text_entries[0].flavor_text
+  console.log(text);
+  
 
   return (
     <>
@@ -30,8 +35,12 @@ const Card = () => {
           }}
           className="pokemon-card"
         >
+          <div className="header">
           <h2>{pokemonName}</h2>
-          <div>
+          <p>Order: {pokemonId}</p>  
+          </div>
+          
+          <div className="pic-div">
           <img
             src={
               (pokemonPicture && pokemonPicture.front === null) ||
@@ -62,11 +71,14 @@ const Card = () => {
             </div>
           </div>
           <div className="card-informations">
-            <p>Order: {pokemonId}</p>
             <p>Weight: {weight} kg</p>
             <p>Height: {height} m</p>
             <p>Base experience: {baseExperience}</p>
           </div>
+          <div className="card-text">
+            <p>{text}</p>
+          </div>
+          
         </div>
       ) : (
         <></>

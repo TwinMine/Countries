@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import PokemonData from "../../context/PokemonData";
 import PokemonPicture from "../../context/PokemonPicture";
+import SecondDataFetch from "../../context/SecondDataFetch";
 
 const url = import.meta.env.VITE_URL;
 
@@ -8,6 +9,7 @@ const Search = () => {
     const [searchedPokemon, setSearchedPokemon] = useState("");
     const {pokemonData, setPokemonData} = useContext(PokemonData);
     const {pokemonPicture, setPokemonPicture} = useContext(PokemonPicture)
+    const {secondDataFetch, setSecondDataFetch} = useContext(SecondDataFetch)
     
     async function test(e) {
         e.preventDefault();
@@ -23,11 +25,11 @@ const Search = () => {
                 },
             });
             const newData = await response.json();
-            console.log(newData);
-            
+
             if (response.ok) {
                 setPokemonData(newData); 
                 setPokemonPicture({front: newData.sprites?.front_default, back: newData.sprites.back_default})
+                await formData(newData.species.url)
             } else {
                 console.log(newData.response);
                 alert("Pokemon not found!")
@@ -38,6 +40,30 @@ const Search = () => {
         }
         setSearchedPokemon("")
     }
+
+    async function formData(formUrl) {
+        console.log(formUrl);
+        
+        try {
+            const response = await fetch(`${formUrl}`, { 
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+            const newData = await response.json();
+            
+            if (response.ok) {
+                console.log(newData);
+                setSecondDataFetch(newData)
+            } else {
+                console.log(newData.response);
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
+
 
     return (
         <>
