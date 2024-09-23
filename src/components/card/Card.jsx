@@ -9,8 +9,9 @@ import SecondDataFetch from "../../context/SecondDataFetch";
 const Card = () => {
   const { pokemonData, setPokemonData } = useContext(PokemonData);
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
-  const {secondDataFetch, setSecondDataFetch} = useContext(SecondDataFetch)
+  const { secondDataFetch, setSecondDataFetch } = useContext(SecondDataFetch);
   const pokemonName = pokemonData.name;
+
   const cardBackground =
     pokemonData?.types?.[0]?.type &&
     cardColor.find((item) => item.typ === pokemonData.types[0].type.name)
@@ -22,9 +23,10 @@ const Card = () => {
   const weight = pokemonData.weight / 10;
   const height = pokemonData.height / 10;
   const baseExperience = pokemonData.base_experience;
-  const text = secondDataFetch.flavor_text_entries[0].flavor_text
+
+  // Sicherstellen, dass `secondDataFetch` und `flavor_text_entries` existieren
+  const text = secondDataFetch?.flavor_text_entries?.[0]?.flavor_text || "No description available.";
   console.log(text);
-  
 
   return (
     <>
@@ -36,29 +38,30 @@ const Card = () => {
           className="pokemon-card"
         >
           <div className="header">
-          <h2>{pokemonName}</h2>
-          <p>Order: {pokemonId}</p>  
+            <h2>{pokemonName}</h2>
+            <p>Order: {pokemonId}</p>
           </div>
-          
+
           <div className="pic-div">
-          <img
-            src={
-              (pokemonPicture && pokemonPicture.front === null) ||
-              pokemonPicture.front === undefined
-                ? defaultPic
-                : pokemonPicture.front
-            }
-            alt={pokemonData.name}
-          />
-          <img
-            src={
-              (pokemonPicture && pokemonPicture.back === null) ||
-              pokemonPicture.back === undefined
-                ? defaultPic
-                : pokemonPicture.back
-            }
-            alt={pokemonData.name}
-          /></div>
+            <img
+              src={
+                (pokemonPicture && pokemonPicture.front === null) ||
+                pokemonPicture.front === undefined
+                  ? defaultPic
+                  : pokemonPicture.front
+              }
+              alt={pokemonData.name}
+            />
+            <img
+              src={
+                (pokemonPicture && pokemonPicture.back === null) ||
+                pokemonPicture.back === undefined
+                  ? defaultPic
+                  : pokemonPicture.back
+              }
+              alt={pokemonData.name}
+            />
+          </div>
           <div className="type-container">
             <p>Type:</p>
             <div className="type-div">
@@ -78,7 +81,6 @@ const Card = () => {
           <div className="card-text">
             <p>{text}</p>
           </div>
-          
         </div>
       ) : (
         <></>
