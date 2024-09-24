@@ -47,8 +47,6 @@ const Search = () => {
     }
 
     async function formData(formUrl) {
-        console.log(formUrl);
-        
         try {
             const response = await fetch(`${formUrl}`, { 
                 method: "GET",
@@ -59,7 +57,6 @@ const Search = () => {
             const newData = await response.json();
             
             if (response.ok) {
-                console.log(newData);
                 setSecondDataFetch(newData)
             } else {
                 console.log(newData.response);
@@ -68,7 +65,6 @@ const Search = () => {
             console.error("Error:", error);
         }
     }
-
 
     return (
         <div className="search-div">

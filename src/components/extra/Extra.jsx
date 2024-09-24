@@ -15,7 +15,6 @@ import GenerationVIII from "./pokemon-pics/GenerationVIII";
 const Extra = () => {
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
   const { pokemonData, setPokemonData } = useContext(PokemonData);
-  console.log(pokemonPicture);
 
   return (
     <>

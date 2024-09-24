@@ -28,8 +28,6 @@ const GenerationVII = () => {
   const smallTopic = Object.keys(
     pokemonData.sprites.versions["generation-vii"]
   ).map(formatTopic);
-
-  console.log(pokemonData);
   return (
     <>
       {pokemonData &&
