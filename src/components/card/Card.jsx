@@ -1,16 +1,42 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import PokemonData from "../../context/PokemonData";
 import PokemonPicture from "../../context/PokemonPicture";
 import { cardColor } from "../data/cardColor";
 import defaultPic from "/not-available.png";
 import "./card.css";
 import SecondDataFetch from "../../context/SecondDataFetch";
+import PokemonCounter from "../../context/PokemonCounter";
 
 const Card = () => {
   const { pokemonData, setPokemonData } = useContext(PokemonData);
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
   const { secondDataFetch, setSecondDataFetch } = useContext(SecondDataFetch);
-  const pokemonName = pokemonData.name;
+  const [language, setLanguage] = useState("en");
+  const {pokemonCounter, setPokemonCounter} = useContext(PokemonCounter)
+  
+  const languageText = [
+    {
+      name: secondDataFetch?.names?.filter((item) => item.language.name === language),
+    },
+    {
+      animal: secondDataFetch?.genera?.filter(
+        (item) => item.language.name === language
+      ),
+    },
+    {
+      text: secondDataFetch?.flavor_text_entries?.filter(
+        (item) => item.language.name === language
+      ),
+    },
+  ];
+
+  const pokemonName = languageText[0]?.name?.[0]?.name || "Unknown Name";
+  const pokemonAnimal = languageText[1]?.animal?.[0]?.genus || "Unknown Animal";
+  const pokemonText = languageText[2]?.text?.map((item) => item.flavor_text) || [];
+  
+
+  console.log(pokemonText);
+  
 
   const cardBackground =
     pokemonData?.types?.[0]?.type &&
@@ -23,10 +49,6 @@ const Card = () => {
   const weight = pokemonData.weight / 10;
   const height = pokemonData.height / 10;
   const baseExperience = pokemonData.base_experience;
-
-  // Sicherstellen, dass `secondDataFetch` und `flavor_text_entries` existieren
-  const text = secondDataFetch?.flavor_text_entries?.[0]?.flavor_text || "No description available.";
-  console.log(text);
 
   return (
     <>
@@ -44,6 +66,13 @@ const Card = () => {
 
           <div className="pic-div">
             <img
+              style={{
+                objectFit:
+                  (pokemonPicture && pokemonPicture.front === null) ||
+                  pokemonPicture.front === undefined
+                    ? "scale-down"
+                    : "fill",
+              }}
               src={
                 (pokemonPicture && pokemonPicture.front === null) ||
                 pokemonPicture.front === undefined
@@ -53,6 +82,13 @@ const Card = () => {
               alt={pokemonData.name}
             />
             <img
+              style={{
+                objectFit:
+                  (pokemonPicture && pokemonPicture.front === null) ||
+                  pokemonPicture.front === undefined
+                    ? "scale-down"
+                    : "fill",
+              }}
               src={
                 (pokemonPicture && pokemonPicture.back === null) ||
                 pokemonPicture.back === undefined
@@ -74,13 +110,24 @@ const Card = () => {
             </div>
           </div>
           <div className="card-informations">
+            <p>Animal: {pokemonAnimal}</p>
             <p>Weight: {weight} kg</p>
             <p>Height: {height} m</p>
             <p>Base experience: {baseExperience}</p>
           </div>
           <div className="card-text">
-            <p>{text}</p>
-          </div>
+            <div className="textButton">
+            <button disabled={pokemonCounter <= 0} onClick={() => setPokemonCounter(pokemonCounter - 1)}>Previos</button>
+            <button disabled={pokemonCounter >= pokemonText?.length} onClick={() => setPokemonCounter(pokemonCounter + 1)}>Next</button>  
+            </div>
+            
+            <p>{pokemonText[pokemonCounter]}</p>
+            </div>
+          <button onClick={() => {setLanguage("en"), setPokemonCounter(0)}}>English</button>
+          <button onClick={() => {setLanguage("es"), setPokemonCounter(0)}}>Spanish</button>
+          <button onClick={() => {setLanguage("de"), setPokemonCounter(0)}}>German</button>
+          <button onClick={() => {setLanguage("ja"), setPokemonCounter(0)}}>Japanese</button>
+          <button onClick={() => {setLanguage("it"), setPokemonCounter(0)}}>Italian</button>
         </div>
       ) : (
         <></>

@@ -12,6 +12,10 @@
     font-family: "Permanent Marker", cursive;
 }
 
+body{
+    background-color: #3333;
+}
+
 h2{
     font-family: "Rubik Mono One", monospace;
 }

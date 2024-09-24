@@ -46,8 +46,12 @@
     height: 150px;
     border-radius: 50%;
     background-color: #f9f9f9;
-    object-fit: cover;
+    object-fit: scale-down;
     border: 3px solid #ccc;
+}
+
+.test{
+    object-fit: fill;
 }
 
 .type-container {

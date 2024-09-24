@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import PokemonData from "../../context/PokemonData";
 import PokemonPicture from "../../context/PokemonPicture";
 import SecondDataFetch from "../../context/SecondDataFetch";
+import "./search.css"
+import PokemonCounter from "../../context/PokemonCounter";
 
 const url = import.meta.env.VITE_URL;
 
@@ -10,8 +12,9 @@ const Search = () => {
     const {pokemonData, setPokemonData} = useContext(PokemonData);
     const {pokemonPicture, setPokemonPicture} = useContext(PokemonPicture)
     const {secondDataFetch, setSecondDataFetch} = useContext(SecondDataFetch)
+    const {pokemonCounter, setPokemonCounter} = useContext(PokemonCounter)
     
-    async function test(e) {
+    async function firstDataFetch(e) {
         e.preventDefault();
 
         if(!searchedPokemon){
@@ -27,9 +30,11 @@ const Search = () => {
             const newData = await response.json();
 
             if (response.ok) {
+                setPokemonCounter(0)
                 setPokemonData(newData); 
                 setPokemonPicture({front: newData.sprites?.front_default, back: newData.sprites.back_default})
                 await formData(newData.species.url)
+
             } else {
                 console.log(newData.response);
                 alert("Pokemon not found!")
@@ -66,8 +71,8 @@ const Search = () => {
 
 
     return (
-        <>
-            <form onSubmit={test}>
+        <div className="search-div">
+            <form onSubmit={firstDataFetch}>
                 <input
                     type="text"
                     name="name"
@@ -76,9 +81,9 @@ const Search = () => {
                     onChange={(e) => setSearchedPokemon(e.target.value)}
                     required
                 />
-                <button type="submit">Search</button>
+                <button type="submit"><i className="fa-brands fa-golang"></i></button>
             </form>
-        </>
+        </div>
     );
 };
 
