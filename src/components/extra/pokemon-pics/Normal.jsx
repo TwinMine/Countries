@@ -9,7 +9,7 @@ const Normal = () => {
       <>
         {pokemonData && pokemonData.sprites.front_default ? (
           <div className="normal">
-            <h3>Normal</h3>
+            <h2>Normal</h2>
             {pokemonData && pokemonData.sprites.front_default ? (
               <button
                 onClick={() =>

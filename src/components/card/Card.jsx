@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import PokemonData from "../../context/PokemonData";
 import PokemonPicture from "../../context/PokemonPicture";
 import { cardColor } from "../data/cardColor";
@@ -14,8 +14,34 @@ const Card = () => {
   const { secondDataFetch, setSecondDataFetch } = useContext(SecondDataFetch);
   const { pokemonCounter, setPokemonCounter } = useContext(PokemonCounter);
   const [language, setLanguage] = useState("en");
-  
-  const languageText = [
+
+  const cardBackground =
+    pokemonData?.types?.[0]?.type &&
+    cardColor.find((item) => item.typ === pokemonData.types[0].type.name)
+      ?.backgroundColor;
+
+  const pokemonType = pokemonData?.types?.map((item) => item.type.name);
+  const allTypes = cardColor.filter((type) => pokemonType?.includes(type.typ));
+  const [typeLanguage, setTypeLanguage] = useState([])
+  const pokemonId = pokemonData.id;
+  const weight = pokemonData.weight / 10;
+  const height = pokemonData.height / 10;
+  const baseExperience = pokemonData.base_experience;
+
+
+useEffect(() => {
+  typeFunction(cardColor.filter((type) => pokemonType?.includes(type.typ)),typeLanguage , setTypeLanguage, language)
+},[language])
+useEffect(() => {
+if(typeLanguage.length <= 0){
+    setTypeLanguage(allTypes)
+  }
+},[])
+
+
+console.log(typeLanguage);
+
+ const languageText = [
     {
       name: secondDataFetch?.names?.filter(
         (item) => item.language.name === language
@@ -33,23 +59,9 @@ const Card = () => {
     },
   ];
 
-  const pokemonName = languageText[0]?.name?.[0]?.name || "Unknown Pokemon";
+const pokemonName = languageText[0]?.name?.[0]?.name || "Unknown Pokemon";
   const pokemonAnimal = languageText[1]?.animal?.[0]?.genus || "Unknown Animal";
   const pokemonText = languageText[2]?.text?.map((item) => item.flavor_text) || [];
-
-  const cardBackground =
-    pokemonData?.types?.[0]?.type &&
-    cardColor.find((item) => item.typ === pokemonData.types[0].type.name)
-      ?.backgroundColor;
-
-  const pokemonType = pokemonData?.types?.map((item) => item.type.name);
-  const allTypes = cardColor.filter((type) => pokemonType?.includes(type.typ));
-  const [typeLanguage, setTypeLanguage] = useState([allTypes])
-  const pokemonId = pokemonData.id;
-  const weight = pokemonData.weight / 10;
-  const height = pokemonData.height / 10;
-  const baseExperience = pokemonData.base_experience;
-console.log(allTypes);
 
   return (
     <>
@@ -103,7 +115,12 @@ console.log(allTypes);
           <div className="type-container">
             <p>Type:</p>
             <div className="type-div">
-              {allTypes.map((item) => (
+              {typeLanguage.length <= 0 ? allTypes.map((item) => (
+                <div className="type" key={item.id}>
+                  <p>{item.typ}</p>
+                  <img src={item.symbol} alt={item.typ} />
+                </div>
+              )) : typeLanguage.map((item) => (
                 <div className="type" key={item.id}>
                   <p>{item.typ}</p>
                   <img src={item.symbol} alt={item.typ} />

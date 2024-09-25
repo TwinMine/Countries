@@ -27,8 +27,6 @@ const typeFunction = async (allTypes, typeLanguage, setTypeLanguage, language) =
       });
   
       setTypeLanguage(updatedTypes);
-  
-      console.log(updatedTypes); 
     } catch (error) {
       console.error("Fehler beim Abrufen der Typdaten:", error);
     }

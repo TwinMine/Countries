@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import PokemonPicture from "../../context/PokemonPicture";
 import PokemonData from "../../context/PokemonData";
 import Normal from "./pokemon-pics/Normal";
@@ -15,30 +15,47 @@ import GenerationVIII from "./pokemon-pics/GenerationVIII";
 const Extra = () => {
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
   const { pokemonData, setPokemonData } = useContext(PokemonData);
-
+  const [selectData, setSelectData] = useState("Normal");
   return (
     <>
       {pokemonData && pokemonData.name !== undefined ? (
         <div>
-          <Normal />
+          <select
+            className="choose-options"
+            onChange={(e) => setSelectData(e.target.value)}
+            value={selectData}
+          >
+            <option value="Normal">Normal</option>
+            <option value="Other">Other</option>
+            <option value="GenerationI">GenerationI</option>
+            <option value="GenerationII">GenerationII</option>
+            <option value="GenerationIII">GenerationIII</option>
+            <option value="GenerationIV">GenerationIV</option>
+            <option value="GenerationV">GenerationV</option>
+            <option value="GenerationVI">GenerationVI</option>
+            <option value="GenerationVII">GenerationVII</option>
+            <option value="GenerationVIII">GenerationVIII</option>
+          </select>
 
-          <Other />
+          {selectData === "Normal" ? <Normal /> : <></>}
 
-          <GenerationI />
+          {selectData === "Other" ? <Other /> : <></>}
 
-          <GenerationII />
+          {selectData === "GenerationI" ? <GenerationI /> : <></>}
 
-          <GenerationIII />
+          {selectData === "GenerationII" ? <GenerationII /> : <></>}
 
-          <GenerationIV />
+          {selectData === "GenerationIII" ? <GenerationIII /> : <></>}
 
-          <GenerationV />
+          {selectData === "GenerationIV" ? <GenerationIV /> : <></>}
 
-          <GenerationVI />
+          {selectData === "GenerationV" ? <GenerationV /> : <></>}
 
-          <GenerationVII />
+          {selectData === "GenerationVI" ? <GenerationVI /> : <></>}
 
-          <GenerationVIII />
+          {selectData === "GenerationVII" ? <GenerationVII /> : <></>}
+
+          {selectData === "GenerationVIII" ? <GenerationVIII /> : <></>}
         </div>
       ) : (
         <></>
