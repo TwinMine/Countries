@@ -1,0 +1,7 @@
+.language-buttons{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: auto auto;
+}

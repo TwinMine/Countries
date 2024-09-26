@@ -1,19 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700;900&display=swap');
-
-
-
 
 *{
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: "Permanent Marker", cursive;
-}
-
-body{
-    background-color: #3333;
+    font-family: "Inria Sans", cursive;
 }
 
 h2{

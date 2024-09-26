@@ -1,4 +1,5 @@
 import Card from "../card/Card";
+import ColorSwitch from "../colorSwitch/ColorSwitch";
 import Extra from "../extra/Extra";
 import Header from "../header/Header";
 import MusicPlayer from "../musicPlayer/MusicPlayer";
@@ -9,6 +10,7 @@ const Dashboard = () => {
     return (
         <>
         <Header />
+        <ColorSwitch />
         <Search />
         <Card />
         <Extra />

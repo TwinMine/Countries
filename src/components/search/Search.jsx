@@ -67,8 +67,8 @@ const Search = () => {
     }
 
     return (
-        <div className="search-div">
-            <form onSubmit={firstDataFetch}>
+        <div>
+            <form className="search-div" onSubmit={firstDataFetch}>
                 <input
                     type="text"
                     name="name"

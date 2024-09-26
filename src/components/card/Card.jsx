@@ -7,6 +7,7 @@ import "./card.css";
 import SecondDataFetch from "../../context/SecondDataFetch";
 import PokemonCounter from "../../context/PokemonCounter";
 import { typeFunction } from "../function/TypeFunction";
+import Translater from "../translater/Translater";
 
 const Card = () => {
   const { pokemonData, setPokemonData } = useContext(PokemonData);
@@ -21,27 +22,35 @@ const Card = () => {
       ?.backgroundColor;
 
   const pokemonType = pokemonData?.types?.map((item) => item.type.name);
-  const allTypes = cardColor.filter((type) => pokemonType?.includes(type.typ));
-  const [typeLanguage, setTypeLanguage] = useState([])
+  const [allTypes, setAllTypes] = useState(
+    cardColor.filter((type) => pokemonType?.includes(type.typ))
+  );
+  const [typeLanguage, setTypeLanguage] = useState([]);
   const pokemonId = pokemonData.id;
   const weight = pokemonData.weight / 10;
   const height = pokemonData.height / 10;
   const baseExperience = pokemonData.base_experience;
 
+  useEffect(() => {
+    typeFunction(
+      cardColor.filter((type) => pokemonType?.includes(type.typ)),
+      typeLanguage,
+      setTypeLanguage,
+      language
+    );
+    
+  }, [language]);
 
-useEffect(() => {
-  typeFunction(cardColor.filter((type) => pokemonType?.includes(type.typ)),typeLanguage , setTypeLanguage, language)
-},[language])
-useEffect(() => {
-if(typeLanguage.length <= 0){
-    setTypeLanguage(allTypes)
-  }
-},[])
 
 
-console.log(typeLanguage);
+  useEffect(() => {
+    setTypeLanguage(
+      cardColor.filter((type) => pokemonType?.includes(type.typ))
+    );
+    setLanguage("en")
+  }, [pokemonData]);
 
- const languageText = [
+  const languageText = [
     {
       name: secondDataFetch?.names?.filter(
         (item) => item.language.name === language
@@ -59,14 +68,17 @@ console.log(typeLanguage);
     },
   ];
 
-const pokemonName = languageText[0]?.name?.[0]?.name || "Unknown Pokemon";
+  const pokemonName = languageText[0]?.name?.[0]?.name || "Unknown Pokemon";
   const pokemonAnimal = languageText[1]?.animal?.[0]?.genus || "Unknown Animal";
-  const pokemonText = languageText[2]?.text?.map((item) => item.flavor_text) || [];
+  const pokemonText =
+    languageText[2]?.text?.map((item) => item.flavor_text) || [];
+
+    console.log(secondDataFetch);
+    
 
   return (
     <>
       {pokemonData && pokemonData.name ? (
-        
         <div
           style={{
             backgroundColor: cardBackground,
@@ -115,17 +127,12 @@ const pokemonName = languageText[0]?.name?.[0]?.name || "Unknown Pokemon";
           <div className="type-container">
             <p>Type:</p>
             <div className="type-div">
-              {typeLanguage.length <= 0 ? allTypes.map((item) => (
-                <div className="type" key={item.id}>
-                  <p>{item.typ}</p>
-                  <img src={item.symbol} alt={item.typ} />
-                </div>
-              )) : typeLanguage.map((item) => (
-                <div className="type" key={item.id}>
-                  <p>{item.typ}</p>
-                  <img src={item.symbol} alt={item.typ} />
-                </div>
-              ))}
+              {typeLanguage.map((item) => (
+                    <div className="type" key={item.id}>
+                      <p>{item.typ[0].toUpperCase() + item.typ.slice(1).toLowerCase()}</p>
+                      <img src={item.symbol} alt={item.typ} />
+                    </div>
+                  ))}
             </div>
           </div>
           <div className="card-informations">
@@ -150,53 +157,24 @@ const pokemonName = languageText[0]?.name?.[0]?.name || "Unknown Pokemon";
               </button>
             </div>
 
-            <p>{pokemonText[pokemonCounter]}</p>
-          </div><button
-  onClick={() => {
-    setLanguage("en");
-    setPokemonCounter(0);
-    typeFunction(cardColor.filter((type) => pokemonType?.includes(type.typ)),typeLanguage , setTypeLanguage, language);
-  }}
->
-  English
-</button>
-<button
-  onClick={() => {
-    setLanguage("es");
-    setPokemonCounter(0);
-    typeFunction(cardColor.filter((type) => pokemonType?.includes(type.typ)),typeLanguage ,  setTypeLanguage, language);
-  }}
->
-  Spanish
-</button>
-<button
-  onClick={() => {
-    setLanguage("de");
-    setPokemonCounter(0);
-    typeFunction(cardColor.filter((type) => pokemonType?.includes(type.typ)),typeLanguage , setTypeLanguage, language);
-  }}
->
-  German
-</button>
-<button
-  onClick={() => {
-    setLanguage("ja");
-    setPokemonCounter(0);
-    typeFunction(cardColor.filter((type) => pokemonType?.includes(type.typ)),typeLanguage , setTypeLanguage, language);
-  }}
->
-  Japanese
-</button>
-<button
-  onClick={() => {
-    setLanguage("it");
-    setPokemonCounter(0);
-    typeFunction(cardColor.filter((type) => pokemonType?.includes(type.typ)),typeLanguage , setTypeLanguage, language);
-  }}
->
-  Italian
-</button>
+            <p>
+              {pokemonText.length
+                ? pokemonText[pokemonCounter]
+                : "No informations available"}
+            </p>
+          </div>
 
+          <Translater
+            setLanguage={setLanguage}
+            setPokemonCounter={setPokemonCounter}
+            typeFunction={typeFunction}
+            cardColor={cardColor}
+            pokemonType={pokemonType}
+            typeLanguage={typeLanguage}
+            setTypeLanguage={setTypeLanguage}
+            language={language}
+            allTypes={allTypes} pokemonData={pokemonData}
+          />
         </div>
       ) : (
         <></>
