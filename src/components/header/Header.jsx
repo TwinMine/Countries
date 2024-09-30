@@ -1,12 +1,13 @@
+import { useState } from "react";
+import PokemonComponent from "../pokemonComponents/PokemonComponent";
+
 const Header = () => {
     return(
         <>
         <h1>
             PokePal Codex
         </h1>
-        <div>
-            Three samples of Pokemons
-        </div>
+        <PokemonComponent />
         </>
     )
 }

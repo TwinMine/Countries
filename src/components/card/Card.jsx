@@ -73,12 +73,23 @@ const Card = () => {
   const pokemonText =
     languageText[2]?.text?.map((item) => item.flavor_text) || [];
 
-    console.log(secondDataFetch);
-    
-
   return (
     <>
       {pokemonData && pokemonData.name ? (
+        <div>
+          <div>
+           <Translater
+            setLanguage={setLanguage}
+            setPokemonCounter={setPokemonCounter}
+            typeFunction={typeFunction}
+            cardColor={cardColor}
+            pokemonType={pokemonType}
+            typeLanguage={typeLanguage}
+            setTypeLanguage={setTypeLanguage}
+            language={language}
+            allTypes={allTypes} pokemonData={pokemonData}
+          />
+        </div>
         <div
           style={{
             backgroundColor: cardBackground,
@@ -164,17 +175,9 @@ const Card = () => {
             </p>
           </div>
 
-          <Translater
-            setLanguage={setLanguage}
-            setPokemonCounter={setPokemonCounter}
-            typeFunction={typeFunction}
-            cardColor={cardColor}
-            pokemonType={pokemonType}
-            typeLanguage={typeLanguage}
-            setTypeLanguage={setTypeLanguage}
-            language={language}
-            allTypes={allTypes} pokemonData={pokemonData}
-          />
+         
+        </div>
+        
         </div>
       ) : (
         <></>

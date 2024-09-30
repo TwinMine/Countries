@@ -8,6 +8,7 @@
     padding: 20px;
     background-color: #fafafa;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
 }
 
 .pokemon-card:hover {
