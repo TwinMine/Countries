@@ -153,7 +153,7 @@ const Card = () => {
             <p>Base experience: {baseExperience}</p>
           </div>
           <div className="card-text">
-            <div className="textButton">
+            <div className="text-button">
               <button
                 disabled={pokemonCounter === 0}
                 onClick={() => setPokemonCounter(pokemonCounter - 1)}

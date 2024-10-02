@@ -124,6 +124,11 @@
     margin: 0;
 }
 
+.text-button{
+    display: flex;
+    justify-content: space-around;
+}
+
 @media (max-width: 500px) {
     .pokemon-card {
         width: 100%;
