@@ -11,10 +11,7 @@
     margin: 0 auto;
 }
 
-.pokemon-card:hover {
-    transform: scale(1.05);
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 30px, rgba(0, 0, 0, 0.3) 0px 10px 10px;
-}
+
 
 .header {
     display: flex;
@@ -128,7 +125,7 @@
     display: flex;
     justify-content: space-around;
 }
-
+/* 
 @media (max-width: 500px) {
     .pokemon-card {
         width: 100%;
@@ -156,4 +153,4 @@
     .header>p, .header>h2{
         font-size: 90%;
     }
-}
+} */
