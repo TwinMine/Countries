@@ -10,10 +10,10 @@ const Dashboard = () => {
     return (
         <>
         <Header />
-        <ColorSwitch />
         <Search />
         <Card />
         <Extra />
+        <ColorSwitch />
         <MusicPlayer />
         </>
     );

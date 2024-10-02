@@ -1,4 +1,6 @@
 .language-buttons{
+
+    transition: all 0.3s ease-in-out;
     background-color: aliceblue;
     display: flex;
     gap: 10px;
@@ -6,5 +8,14 @@
     align-items: center;
     padding: 20px;
     border-radius: 10px;
-    width: 100vw;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+    
+}
+
+@media (max-width: 660px) {
+    .language-buttons{
+        width: 400px;
+    }
 }

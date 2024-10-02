@@ -28,7 +28,7 @@
     border: #f1f1f1 solid 8px;
     padding: 20px;
     background-color: #fafafa;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease-in-out;
     margin: 0 auto;
     font-size: 10px;
 }
@@ -36,6 +36,7 @@
 .random-card-header{
     display: flex;
     gap: 60px;
+    border-bottom: 2px solid #ddd;
 }
 
 .random-card-header>h2{
