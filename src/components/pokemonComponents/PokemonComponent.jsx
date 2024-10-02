@@ -1,56 +1,58 @@
 import { useState, useEffect } from "react";
-import "./pokemonComponent.css"
+import "./pokemonComponent.css";
 
 const PokemonComponent = () => {
-    const [randomPokemon, setRandomPokemon] = useState([]);
-    const [count, setCount] = useState(0);
-    const url = import.meta.env.VITE_URL;
+  const [randomPokemon, setRandomPokemon] = useState([]);
+  const [count, setCount] = useState(0);
+  const url = import.meta.env.VITE_URL;
 
-    const randomNumberFunction = async (number) => {
-        try {
-            const response = await fetch(`${url}/${number}`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            const data = await response.json();
+  const randomNumberFunction = async (number) => {
+    try {
+      const response = await fetch(`${url}/${number}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await response.json();
 
-            if (response.ok) {
-                setRandomPokemon((prevPokemon) => [...prevPokemon, data]);
-            } else {
-                console.log(data.response);
-                alert("Pokemon not found!");
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Pokemon not found!");
-        }
-    };
+      if (response.ok) {
+        setRandomPokemon((prevPokemon) => [...prevPokemon, data]);
+      } else {
+        console.log(data.response);
+        alert("Pokemon not found!");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Pokemon not found!");
+    }
+  };
 
-    useEffect(() => {
-        if (count < 2) { 
-            const randomNumber = Math.ceil(Math.random() * 1020);
-            randomNumberFunction(randomNumber);
-            setCount(count + 1); 
-        }
-    }, [count]);
+  useEffect(() => {
+    if (count < 2) {
+      const randomNumber = Math.ceil(Math.random() * 1020);
+      randomNumberFunction(randomNumber);
+      setCount(count + 1);
+    }
+  }, [count]);
 
-    return (
-        <div>
-            <h1>Random Pokémon</h1>
-            {randomPokemon.length > 0 ? (
-                randomPokemon.map((pokemon, index) => (
-                    <div className="random-cards" key={index}>
-                        <h2>{pokemon.name}</h2>
-                        <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-                    </div>
-                ))
-            ) : (
-                <p>Loading Pokémon...</p>
-            )}
-        </div>
-    );
+  return (
+    <div className="example-pokemon">
+      {randomPokemon.length > 0 ? (
+        randomPokemon.map((pokemon, index) => (
+          <div className="random-cards" key={index}>
+            <div className="random-card-header">
+            <h2>{pokemon.name}</h2>
+            <p>Order: {pokemon.id}</p>    
+            </div>
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+          </div>
+        ))
+      ) : (
+        <p>Loading Pokémon...</p>
+      )}
+    </div>
+  );
 };
 
 export default PokemonComponent;
