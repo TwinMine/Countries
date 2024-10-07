@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+.modern-title {
+    font-size: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 520px;
+    margin: 0 auto;
+    font-family: "Silkscreen", Arial, Helvetica, sans-serif;
+  }
+  

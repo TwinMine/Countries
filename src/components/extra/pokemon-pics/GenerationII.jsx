@@ -38,7 +38,7 @@ const GenerationII = () => {
         pokemonData.sprites.versions["generation-ii"]["gold"].front_default) ||
       (pokemonData &&
         pokemonData.sprites.versions["generation-ii"]["silver"]
-          .front_defaul) ? (
+          .front_default) ? (
         <div>
           <h2>{topic}</h2>
           <div className="crystal">

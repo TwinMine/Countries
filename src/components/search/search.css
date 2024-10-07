@@ -1,3 +1,8 @@
+.search-container{
+    width: 400px;
+    margin: 0 auto;
+}
+
 .search-div{
     display: flex;
     align-items: center;
