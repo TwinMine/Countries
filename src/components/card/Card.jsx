@@ -158,13 +158,13 @@ const Card = () => {
                 disabled={pokemonCounter === 0}
                 onClick={() => setPokemonCounter(pokemonCounter - 1)}
               >
-                Previos
+                <i className="fa-solid fa-circle-arrow-left"></i>
               </button>
               <button
                 disabled={pokemonCounter + 1 === pokemonText?.length}
                 onClick={() => setPokemonCounter(pokemonCounter + 1)}
               >
-                Next
+                <i className="fa-solid fa-circle-arrow-right"></i>
               </button>
             </div>
 

@@ -45,7 +45,11 @@ const PokemonComponent = () => {
             <h2>{pokemon.name}</h2>
             <p>Order: {pokemon.id}</p>    
             </div>
+            <div className="random-pics">
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+            <img src={pokemon.sprites.back_default} alt={pokemon.name} />  
+            </div>
+            
           </div>
         ))
       ) : (

@@ -130,6 +130,12 @@
     display: flex;
     justify-content: space-around;
 }
+
+.text-button>button{
+    padding: 0px;
+    
+}
+
 /* 
 @media (max-width: 500px) {
     .pokemon-card {

@@ -33,6 +33,18 @@
     font-size: 10px;
 }
 
+.random-pics{
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.random-cards>.random-pics>img{
+    background-color: #ffffff;
+    border-radius: 100%;
+    border: 10px double rgb(108, 108, 131);
+}
+
 .random-card-header{
     display: flex;
     gap: 60px;
@@ -43,11 +55,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: black;
 }
 
 .random-card-header>p{
     font-size: 14px;
-    color: #888;
+    color: #292828;
 }
 
 .random-cards>img{
