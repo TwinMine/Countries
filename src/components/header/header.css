@@ -10,3 +10,10 @@
     font-family: "Silkscreen", Arial, Helvetica, sans-serif;
   }
   
+
+@media (max-width: 540px){
+  .modern-title {
+    font-size: 2em;
+    width: 400px;
+  }
+}
