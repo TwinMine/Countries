@@ -45,7 +45,10 @@ const GenerationVII = () => {
             {pokemonData &&
             pokemonData.sprites.versions["generation-vii"]["icons"]
               .front_default ? (
-              <button
+              <button 
+              disabled={pokemonData.sprites.versions["generation-vii"]["icons"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["icons"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-vii"]["icons"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["icons"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -67,6 +70,9 @@ const GenerationVII = () => {
             pokemonData.sprites.versions["generation-vii"]["icons"]
               .front_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-vii"]["icons"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["icons"].back_female}
+
+              style={{background: pokemonData.sprites.versions["generation-vii"]["icons"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["icons"].back_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -88,6 +94,9 @@ const GenerationVII = () => {
             pokemonData.sprites.versions["generation-vii"]["icons"]
               .front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-vii"]["icons"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["icons"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-vii"]["icons"].front_shiny=== pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["icons"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -109,6 +118,9 @@ const GenerationVII = () => {
             pokemonData.sprites.versions["generation-vii"]["icons"]
               .front_shiny_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-vii"]["icons"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["icons"].back_shiny_female}
+
+              style={{background: pokemonData.sprites.versions["generation-vii"]["icons"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["icons"].back_shiny_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -136,10 +148,11 @@ const GenerationVII = () => {
               <></>
             )}
             {pokemonData &&
-            pokemonData.sprites.versions["generation-vii"][
-              "ultra-sun-ultra-moon"
-            ].front_default ? (
+            pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -163,6 +176,9 @@ const GenerationVII = () => {
               "ultra-sun-ultra-moon"
             ].front_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].back_female}
+
+              style={{background: pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].back_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -186,6 +202,9 @@ const GenerationVII = () => {
               "ultra-sun-ultra-moon"
             ].front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -209,6 +228,9 @@ const GenerationVII = () => {
               "ultra-sun-ultra-moon"
             ].front_shiny_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].back_shiny_female}
+
+              style={{background: pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vii"]["ultra-sun-ultra-moon"].back_shiny_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:

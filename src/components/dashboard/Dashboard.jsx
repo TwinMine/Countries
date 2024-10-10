@@ -1,6 +1,7 @@
 import Card from "../card/Card";
 import ColorSwitch from "../colorSwitch/ColorSwitch";
 import Extra from "../extra/Extra";
+import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import MusicPlayer from "../musicPlayer/MusicPlayer";
 import Search from "../search/Search";
@@ -15,15 +16,7 @@ const Dashboard = () => {
       <Extra />
       <ColorSwitch />
       <MusicPlayer />
-      <div>
-        <p>
-          Data dynamically fetched from{" "}
-          <a href="https://pokeapi.co" rel="noreferrer" target="_blank">
-            PokeAPI
-          </a>
-          , accessed on {new Date().toDateString()}.
-        </p>
-      </div>
+      <Footer />
     </>
   );
 };

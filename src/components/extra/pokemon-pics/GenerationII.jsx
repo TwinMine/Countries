@@ -53,6 +53,9 @@ const GenerationII = () => {
             pokemonData.sprites.versions["generation-ii"]["crystal"]
               .front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-ii"]["crystal"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["crystal"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-ii"]["crystal"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["crystal"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -74,6 +77,9 @@ const GenerationII = () => {
             pokemonData.sprites.versions["generation-ii"]["crystal"]
               .front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-ii"]["crystal"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["crystal"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-ii"]["crystal"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["crystal"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -95,6 +101,9 @@ const GenerationII = () => {
             pokemonData.sprites.versions["generation-ii"]["crystal"]
               .front_transparent ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-ii"]["crystal"].front_transparent === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["crystal"].back_transparent}
+
+              style={{background: pokemonData.sprites.versions["generation-ii"]["crystal"].front_transparent === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["crystal"].back_transparent ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -116,14 +125,14 @@ const GenerationII = () => {
             pokemonData.sprites.versions["generation-ii"]["crystal"]
               .front_shiny_transparent ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-ii"]["crystal"].front_shiny_transparent === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["crystal"].back_shiny_transparent}
+
+              style={{background: pokemonData.sprites.versions["generation-ii"]["crystal"].front_shiny_transparent === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["crystal"].back_shiny_transparent ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
-                      pokemonData.sprites.versions["generation-ii"]["crystal"]
-                        .front_shiny_transparent,
-                    back: pokemonData.sprites.versions["generation-ii"][
-                      "crystal"
-                    ].back_shiny_transparent,
+                      pokemonData.sprites.versions["generation-ii"]["crystal"].front_shiny_transparent,
+                    back: pokemonData.sprites.versions["generation-ii"]["crystal"].back_shiny_transparent,
                   })
                 }
               >
@@ -146,6 +155,9 @@ const GenerationII = () => {
             pokemonData.sprites.versions["generation-ii"]["gold"]
               .front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-ii"]["gold"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["gold"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-ii"]["gold"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["gold"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -166,6 +178,9 @@ const GenerationII = () => {
             pokemonData.sprites.versions["generation-ii"]["gold"]
               .front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-ii"]["gold"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["gold"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-ii"]["gold"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["gold"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -186,6 +201,9 @@ const GenerationII = () => {
             pokemonData.sprites.versions["generation-ii"]["gold"]
               .front_transparent ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-ii"]["gold"].front_transparent === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["gold"].back_transparent}
+
+              style={{background: pokemonData.sprites.versions["generation-ii"]["gold"].front_transparent === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["gold"].back_transparent ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -215,6 +233,9 @@ const GenerationII = () => {
             pokemonData.sprites.versions["generation-ii"]["silver"]
               .front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-ii"]["silver"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["silver"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-ii"]["silver"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["silver"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -236,6 +257,9 @@ const GenerationII = () => {
             pokemonData.sprites.versions["generation-ii"]["silver"]
               .front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-ii"]["silver"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["silver"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-ii"]["silver"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["silver"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -257,6 +281,9 @@ const GenerationII = () => {
             pokemonData.sprites.versions["generation-ii"]["silver"]
               .front_transparent ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-ii"]["silver"].front_transparent === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["silver"].back_transparent}
+
+              style={{background: pokemonData.sprites.versions["generation-ii"]["silver"].front_transparent === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-ii"]["silver"].back_transparent ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:

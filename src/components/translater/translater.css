@@ -1,6 +1,7 @@
 .language-buttons{
     transition: all 0.3s ease-in-out;
     background-color: aliceblue;
+    color: black;
     display: flex;
     flex-direction: column;
     gap: 10px;

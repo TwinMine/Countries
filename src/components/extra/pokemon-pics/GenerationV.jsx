@@ -56,6 +56,9 @@ const GenerationV = () => {
             pokemonData.sprites.versions["generation-v"]["black-white"]
               .front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-v"]["black-white"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-v"]["black-white"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -78,6 +81,9 @@ const GenerationV = () => {
             pokemonData.sprites.versions["generation-v"]["black-white"]
               .front_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-v"]["black-white"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].back_female}
+
+                style={{background: pokemonData.sprites.versions["generation-v"]["black-white"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].back_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -100,6 +106,9 @@ const GenerationV = () => {
             pokemonData.sprites.versions["generation-v"]["black-white"]
               .front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-v"]["black-white"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-v"]["black-white"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -122,6 +131,9 @@ const GenerationV = () => {
             pokemonData.sprites.versions["generation-v"]["black-white"]
               .front_shiny_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-v"]["black-white"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].back_shiny_female}
+
+              style={{background: pokemonData.sprites.versions["generation-v"]["black-white"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].back_shiny_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -153,6 +165,9 @@ const GenerationV = () => {
             pokemonData.sprites.versions["generation-v"]["black-white"].animated
               .front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-v"]["black-white"].animated.front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].animated.back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-v"]["black-white"].animated.front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].animated.back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -175,6 +190,9 @@ const GenerationV = () => {
             pokemonData.sprites.versions["generation-v"]["black-white"].animated
               .front_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-v"]["black-white"].animated.front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].animated.back_female}
+
+              style={{background: pokemonData.sprites.versions["generation-v"]["black-white"].animated.front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].animated.back_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -197,6 +215,9 @@ const GenerationV = () => {
             pokemonData.sprites.versions["generation-v"]["black-white"].animated
               .front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-v"]["black-white"].animated.front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].animated.back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-v"]["black-white"].animated.front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].animated.back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -219,6 +240,9 @@ const GenerationV = () => {
             pokemonData.sprites.versions["generation-v"]["black-white"].animated
               .front_shiny_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-v"]["black-white"].animated.front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].animated.back_shiny_female}
+
+              style={{background: pokemonData.sprites.versions["generation-v"]["black-white"].animated.front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-v"]["black-white"].animated.back_shiny_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:

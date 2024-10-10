@@ -136,6 +136,14 @@
     
 }
 
+.card-footer{
+    display: flex;
+    align-items: end;
+    justify-content: right;
+    margin-top: 10px;
+    margin-bottom: -15px;
+}
+
 /* 
 @media (max-width: 500px) {
     .pokemon-card {

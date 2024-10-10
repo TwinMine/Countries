@@ -58,6 +58,9 @@ const GenerationVI = () => {
             "omegaruby-alphasapphire"
           ].front_default ? (
             <button
+            disabled={pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].back_default}
+
+            style={{background: pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].back_default ? "gray" : ""}}
               onClick={() =>
                 setPokemonPicture({
                   front:
@@ -81,6 +84,9 @@ const GenerationVI = () => {
             "omegaruby-alphasapphire"
           ].front_female ? (
             <button
+            disabled={pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].front_female=== pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].back_female}
+
+            style={{background: pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].back_female ? "gray" : ""}}
               onClick={() =>
                 setPokemonPicture({
                   front:
@@ -104,6 +110,9 @@ const GenerationVI = () => {
             "omegaruby-alphasapphire"
           ].front_shiny ? (
             <button
+            disabled={pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].back_shiny}
+
+            style={{background: pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].back_shiny ? "gray" : ""}}
               onClick={() =>
                 setPokemonPicture({
                   front:
@@ -127,6 +136,9 @@ const GenerationVI = () => {
             "omegaruby-alphasapphire"
           ].front_shiny_female ? (
             <button
+            disabled={pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].back_shiny_female}
+
+            style={{background: pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["omegaruby-alphasapphire"].back_shiny_female ? "gray" : ""}}
               onClick={() =>
                 setPokemonPicture({
                   front:
@@ -161,6 +173,9 @@ const GenerationVI = () => {
           {pokemonData &&
           pokemonData.sprites.versions["generation-vi"]["x-y"].front_default ? (
             <button
+            disabled={pokemonData.sprites.versions["generation-vi"]["x-y"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["x-y"].back_default}
+
+            style={{background: pokemonData.sprites.versions["generation-vi"]["x-y"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["x-y"].back_default ? "gray" : ""}}
               onClick={() =>
                 setPokemonPicture({
                   front:
@@ -180,6 +195,9 @@ const GenerationVI = () => {
           {pokemonData &&
           pokemonData.sprites.versions["generation-vi"]["x-y"].front_female ? (
             <button
+            disabled={pokemonData.sprites.versions["generation-vi"]["x-y"].front_female=== pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["x-y"].back_female}
+
+            style={{background: pokemonData.sprites.versions["generation-vi"]["x-y"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["x-y"].back_female ? "gray" : ""}}
               onClick={() =>
                 setPokemonPicture({
                   front:
@@ -199,6 +217,9 @@ const GenerationVI = () => {
           {pokemonData &&
           pokemonData.sprites.versions["generation-vi"]["x-y"].front_shiny ? (
             <button
+            disabled={pokemonData.sprites.versions["generation-vi"]["x-y"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["x-y"].back_shiny}
+
+            style={{background: pokemonData.sprites.versions["generation-vi"]["x-y"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["x-y"].back_shiny ? "gray" : ""}}
               onClick={() =>
                 setPokemonPicture({
                   front:
@@ -219,6 +240,9 @@ const GenerationVI = () => {
           pokemonData.sprites.versions["generation-vi"]["x-y"]
             .front_shiny_female ? (
             <button
+            disabled={pokemonData.sprites.versions["generation-vi"]["x-y"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["x-y"].back_shiny_female}
+
+            style={{background: pokemonData.sprites.versions["generation-vi"]["x-y"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-vi"]["x-y"].back_shiny_female ? "gray" : ""}}
               onClick={() =>
                 setPokemonPicture({
                   front:

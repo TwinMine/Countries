@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import "./pokemonComponent.css";
+import defaultPic from "/not-implented.jpg";
 
 const PokemonComponent = () => {
   const [randomPokemon, setRandomPokemon] = useState([]);
@@ -46,8 +47,18 @@ const PokemonComponent = () => {
             <p>Order: {pokemon.id}</p>    
             </div>
             <div className="random-pics">
-            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-            <img src={pokemon.sprites.back_default} alt={pokemon.name} />  
+            <img src={
+                  (pokemon && pokemon.sprites.front_default === null) ||
+                  pokemon.sprites.front_default === undefined
+                    ? defaultPic
+                    : pokemon.sprites.front_default
+                } alt={pokemon.name} />
+            <img src={
+                  (pokemon && pokemon.sprites.back_default === null) ||
+                  pokemon.sprites.back_default === undefined
+                    ? defaultPic
+                    : pokemon.sprites.back_default
+                } alt={pokemon.name} />  
             </div>
             
           </div>

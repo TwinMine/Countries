@@ -43,6 +43,8 @@
     background-color: #ffffff;
     border-radius: 100%;
     border: 10px double rgb(108, 108, 131);
+    width: 100px;
+    height: 100px;
 }
 
 .random-card-header{

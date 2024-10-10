@@ -53,6 +53,9 @@ const GenerationIV = () => {
             pokemonData.sprites.versions["generation-iv"]["diamond-pearl"]
               .front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -75,6 +78,9 @@ const GenerationIV = () => {
             pokemonData.sprites.versions["generation-iv"]["diamond-pearl"]
               .front_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].back_female}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].back_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -96,6 +102,9 @@ const GenerationIV = () => {
             pokemonData.sprites.versions["generation-iv"]["diamond-pearl"]
               .front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -118,6 +127,9 @@ const GenerationIV = () => {
             pokemonData.sprites.versions["generation-iv"]["diamond-pearl"]
               .front_shiny_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].front_shiny_female === pokemonPicture.front_shiny_female && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].back_shiny_female}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["diamond-pearl"].back_shiny_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -151,6 +163,9 @@ const GenerationIV = () => {
               "heartgold-soulsilver"
             ].front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -174,6 +189,9 @@ const GenerationIV = () => {
               "heartgold-soulsilver"
             ].front_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].back_female}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].back_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -197,6 +215,9 @@ const GenerationIV = () => {
               "heartgold-soulsilver"
             ].front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -220,6 +241,9 @@ const GenerationIV = () => {
               "heartgold-soulsilver"
             ].front_shiny_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_shiny_female === pokemonPicture.front_shiny_female && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].back_shiny_female}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["heartgold-soulsilver"].back_shiny_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -251,6 +275,9 @@ const GenerationIV = () => {
             pokemonData.sprites.versions["generation-iv"]["platinum"]
               .front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["platinum"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["platinum"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["platinum"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["platinum"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -272,6 +299,9 @@ const GenerationIV = () => {
             pokemonData.sprites.versions["generation-iv"]["platinum"]
               .front_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["platinum"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["platinum"].back_female}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["platinum"].front_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["platinum"].back_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -293,6 +323,9 @@ const GenerationIV = () => {
             pokemonData.sprites.versions["generation-iv"]["platinum"]
               .front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["platinum"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["platinum"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["platinum"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["platinum"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -314,6 +347,9 @@ const GenerationIV = () => {
             pokemonData.sprites.versions["generation-iv"]["platinum"]
               .front_shiny_female ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iv"]["platinum"].front_shiny_female === pokemonPicture.front_shiny_female && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["platinum"].back_shiny_female}
+
+              style={{background: pokemonData.sprites.versions["generation-iv"]["platinum"].front_shiny_female === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iv"]["platinum"].back_shiny_female ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:

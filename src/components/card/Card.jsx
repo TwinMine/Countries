@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import PokemonData from "../../context/PokemonData";
 import PokemonPicture from "../../context/PokemonPicture";
 import { cardColor } from "../data/cardColor";
-import defaultPic from "/not-available.png";
+import defaultPic from "/not-implented.jpg";
 import "./card.css";
 import SecondDataFetch from "../../context/SecondDataFetch";
 import PokemonCounter from "../../context/PokemonCounter";

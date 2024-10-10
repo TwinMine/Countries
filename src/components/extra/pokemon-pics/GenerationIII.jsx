@@ -54,6 +54,9 @@ const GenerationIII = () => {
             pokemonData.sprites.versions["generation-iii"]["emerald"]
               .front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iii"]["emerald"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iii"]["emerald"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-iii"]["emerald"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iii"]["emerald"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -75,6 +78,9 @@ const GenerationIII = () => {
             pokemonData.sprites.versions["generation-iii"]["emerald"]
               .front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iii"]["emerald"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iii"]["emerald"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-iii"]["emerald"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iii"]["emerald"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -105,6 +111,9 @@ const GenerationIII = () => {
             pokemonData.sprites.versions["generation-iii"]["firered-leafgreen"]
               .front_default ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iii"]["firered-leafgreen"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iii"]["firered-leafgreen"].back_default}
+
+              style={{background: pokemonData.sprites.versions["generation-iii"]["firered-leafgreen"].front_default === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iii"]["firered-leafgreen"].back_default ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
@@ -127,6 +136,9 @@ const GenerationIII = () => {
             pokemonData.sprites.versions["generation-iii"]["firered-leafgreen"]
               .front_shiny ? (
               <button
+              disabled={pokemonData.sprites.versions["generation-iii"]["firered-leafgreen"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iii"]["firered-leafgreen"].back_shiny}
+
+              style={{background: pokemonData.sprites.versions["generation-iii"]["firered-leafgreen"].front_shiny === pokemonPicture.front && pokemonPicture.back === pokemonData.sprites.versions["generation-iii"]["firered-leafgreen"].back_shiny ? "gray" : ""}}
                 onClick={() =>
                   setPokemonPicture({
                     front:
