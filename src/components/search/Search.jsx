@@ -77,7 +77,7 @@ const Search = () => {
                     onChange={(e) => setSearchedPokemon(e.target.value)}
                     required
                 />
-                <button type="submit"><i className="fa-brands fa-golang"></i></button>
+                <button disabled={!searchedPokemon} style={{background: !searchedPokemon ? "gray" : ""}} type="submit"><i className="fa-brands fa-golang"></i></button>
             </form>
         </div>
     );

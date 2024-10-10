@@ -1,26 +1,35 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
-import "./musicPlayer.css"
+import "./musicPlayer.css";
 
 const MusicPlayer = () => {
   const [url, setUrl] = useState("");
 
   const musicContainer = [
-    { english: "https://www.youtube.com/watch?v=dCVTpeceIew" },
-    { german: "https://www.youtube.com/watch?v=LUlZ5n0cyak" }, 
-    { japanese: "https://www.youtube.com/watch?v=jbHG7fsZVkM" },
+    { title: "English", url: "https://www.youtube.com/watch?v=dCVTpeceIew", language: "en" },
+    { title: "German", url: "https://www.youtube.com/watch?v=LUlZ5n0cyak", language: "de" },
+    { title: "Japanese", url: "https://www.youtube.com/watch?v=jbHG7fsZVkM", language: "ja" },
   ];
 
   return (
     <div>
-        <div className="player">
-         <ReactPlayer url={url} playing controls loop />   
-        </div>
-      
+      <div className="player">
+        <ReactPlayer url={url} playing controls loop />
+      </div>
 
-      <button onClick={() => setUrl(musicContainer[0].english)}>English</button>
-      <button onClick={() => setUrl(musicContainer[1].german)}>German</button>
-      <button onClick={() => setUrl(musicContainer[2].japanese)}>Japanese</button>
+      {musicContainer.map((track, index) => (
+        <button
+          key={index}
+          disabled={url === track.url}
+          style={{
+            backgroundColor: url === track.url ? "gray" : "",
+            cursor: url === track.url ? "not-allowed" : "pointer",
+          }}
+          onClick={() => setUrl(track.url)}
+        >
+          {track.title}
+        </button>
+      ))}
     </div>
   );
 };
