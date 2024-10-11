@@ -3,11 +3,12 @@ import ReactPlayer from "react-player";
 import "./musicPlayer.css";
 
 const MusicPlayer = () => {
-  const [url, setUrl] = useState("https://www.youtube.com/watch?v=7jxUMjuJ_rw&ab_channel=OfficialVGM%3AArchive");
+  
   const [play, setPlay] = useState(true);
-  const [volume, setVolume] = useState(0.2); 
+  const [volume, setVolume] = useState(0.15); 
   const [savedVolume, setSavedVolume] = useState(0);
   const [muted, setMuted] = useState(false);
+const [url, setUrl] = useState("");
 
   const musicContainer = [
     {
