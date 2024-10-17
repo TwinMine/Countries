@@ -2,73 +2,35 @@ import { useContext, useState } from "react";
 import PokemonData from "../../context/PokemonData";
 import PokemonPicture from "../../context/PokemonPicture";
 import SecondDataFetch from "../../context/SecondDataFetch";
-import "./search.css"
+import "./search.css";
 import PokemonCounter from "../../context/PokemonCounter";
+import { firstDataFetch } from "../function/firstDataFetch";
 
 const url = import.meta.env.VITE_URL;
 
 const Search = () => {
     const [searchedPokemon, setSearchedPokemon] = useState("");
-    const {pokemonData, setPokemonData} = useContext(PokemonData);
-    const {pokemonPicture, setPokemonPicture} = useContext(PokemonPicture)
-    const {secondDataFetch, setSecondDataFetch} = useContext(SecondDataFetch)
-    const {pokemonCounter, setPokemonCounter} = useContext(PokemonCounter)
-    
-    async function firstDataFetch(e) {
+    const { pokemonData, setPokemonData } = useContext(PokemonData);
+    const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
+    const { secondDataFetch, setSecondDataFetch } = useContext(SecondDataFetch);
+    const { pokemonCounter, setPokemonCounter } = useContext(PokemonCounter);
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        if(!searchedPokemon){
-            return alert("Type in your favorite pokemon")
-        }
-        try {
-            const response = await fetch(`${url}/${searchedPokemon.toLowerCase()}`, { 
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            const newData = await response.json();
-
-            if (response.ok) {
-                setPokemonCounter(0)
-                setPokemonData(newData); 
-                setPokemonPicture({front: newData.sprites?.front_default, back: newData.sprites.back_default})
-                await formData(newData.species.url)
-
-            } else {
-                console.log(newData.response);
-                alert("Pokemon not found!")
-            }
-        } catch (error) {
-            console.error("Error:", error);
-            alert("Pokemon not found!")
-        }
-        setSearchedPokemon("")
-    }
-
-    async function formData(formUrl) {
-        try {
-            const response = await fetch(`${formUrl}`, { 
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            const newData = await response.json();
-            
-            if (response.ok) {
-                setSecondDataFetch(newData)
-            } else {
-                console.log(newData.response);
-            }
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    }
+        firstDataFetch(
+            searchedPokemon, 
+            url, 
+            setPokemonCounter, 
+            setPokemonData, 
+            setPokemonPicture, 
+            setSearchedPokemon, 
+            setSecondDataFetch
+        );
+    };
 
     return (
         <div className="search-container">
-            <form className="search-div" onSubmit={firstDataFetch}>
+            <form className="search-div" onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="name"
@@ -77,7 +39,9 @@ const Search = () => {
                     onChange={(e) => setSearchedPokemon(e.target.value)}
                     required
                 />
-                <button disabled={!searchedPokemon} style={{background: !searchedPokemon ? "gray" : ""}} type="submit"><i className="fa-brands fa-golang"></i></button>
+                <button disabled={!searchedPokemon} style={{ background: !searchedPokemon ? "gray" : "" }} type="submit">
+                    <i className="fa-brands fa-golang"></i>
+                </button>
             </form>
         </div>
     );

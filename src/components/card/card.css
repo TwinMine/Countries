@@ -58,11 +58,8 @@
 }
 
 .type-container {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-bottom: 15px;
+    width: 345px;
 }
 
 .type-container > p {
@@ -76,6 +73,8 @@
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .type {
@@ -129,19 +128,28 @@
 .text-button{
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
-.text-button>button{
-    padding: 0px;
-    
+.text-button>button, .next-pokemon{
+    padding: 4px;
 }
 
 .card-footer{
-    display: flex;
-    align-items: end;
-    justify-content: right;
-    margin-top: 10px;
+    width: 345px;
+    margin-top: 5px;
     margin-bottom: -15px;
+    display: flex;
+}
+
+.card-footer-p{
+    margin-left: auto;
+    background-color:  #fff;
+    color: #333;
+    padding: 5px;
+    font-size: 10px;
+    border-radius: 10px;
+    width: fit-content;
 }
 
 /* 

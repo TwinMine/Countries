@@ -8,6 +8,9 @@ import SecondDataFetch from "../../context/SecondDataFetch";
 import PokemonCounter from "../../context/PokemonCounter";
 import { typeFunction } from "../function/TypeFunction";
 import Translater from "../translater/Translater";
+import { firstDataFetch } from "../function/firstDataFetch";
+
+const url = import.meta.env.VITE_URL;
 
 const Card = () => {
   const { pokemonData, setPokemonData } = useContext(PokemonData);
@@ -15,6 +18,7 @@ const Card = () => {
   const { secondDataFetch, setSecondDataFetch } = useContext(SecondDataFetch);
   const { pokemonCounter, setPokemonCounter } = useContext(PokemonCounter);
   const [language, setLanguage] = useState("en");
+  const [searchedPokemon, setSearchedPokemon] = useState("");
 
   const cardBackground =
     pokemonData?.types?.[0]?.type &&
@@ -72,6 +76,19 @@ const Card = () => {
   const pokemonAnimal = languageText[1]?.animal?.[0]?.genus || "Unknown Animal";
   const pokemonText =
     languageText[2]?.text?.map((item) => item.flavor_text) || [];
+
+  const handlePokemonChange = async (newId) => {
+    setSearchedPokemon(newId);
+    await firstDataFetch(
+      newId,
+      url,
+      setPokemonCounter,
+      setPokemonData,
+      setPokemonPicture,
+      setSearchedPokemon,
+      setSecondDataFetch
+    );
+  };
 
   return (
     <>
@@ -139,6 +156,12 @@ const Card = () => {
             <div className="type-container">
               <p>Type:</p>
               <div className="type-div">
+                <button
+                  className="next-pokemon"
+                  onClick={() => handlePokemonChange(pokemonData.id - 1)}
+                >
+                  <i className="fa-solid fa-circle-arrow-left"></i>
+                </button>
                 {languageText[3].type.map((item) => (
                   <div className="type" key={item.id}>
                     <p>
@@ -147,7 +170,13 @@ const Card = () => {
                     </p>
                     <img src={item.symbol} alt={item.typ} />
                   </div>
-                ))}
+                ))}{" "}
+                <button
+                  className="next-pokemon"
+                  onClick={() => handlePokemonChange(pokemonData.id + 1)}
+                >
+                  <i className="fa-solid fa-circle-arrow-right"></i>
+                </button>
               </div>
             </div>
             <div className="card-informations">
@@ -157,20 +186,34 @@ const Card = () => {
               <p>Base experience: {baseExperience}</p>
             </div>
             <div className="card-text">
-              <div className="text-button">
-                <button
-                  disabled={pokemonCounter === 0}
-                  onClick={() => setPokemonCounter(pokemonCounter - 1)}
-                >
-                  <i className="fa-solid fa-circle-arrow-left"></i>
-                </button>
-                <button
-                  disabled={pokemonCounter + 1 === pokemonText?.length}
-                  onClick={() => setPokemonCounter(pokemonCounter + 1)}
-                >
-                  <i className="fa-solid fa-circle-arrow-right"></i>
-                </button>
-              </div>
+              {pokemonText.length > 0 ? (
+                <div className="text-button">
+                  <button
+                    style={{ background: pokemonCounter === 0 ? "gray" : "" }}
+                    disabled={pokemonCounter === 0}
+                    onClick={() => setPokemonCounter(pokemonCounter - 1)}
+                  >
+                    <i className="fa-solid fa-circle-arrow-left"></i>
+                  </button>
+                  <p>
+                    {pokemonCounter + 1}/{pokemonText?.length}
+                  </p>
+                  <button
+                    style={{
+                      background:
+                        pokemonCounter + 1 === pokemonText?.length
+                          ? "gray"
+                          : "",
+                    }}
+                    disabled={pokemonCounter + 1 === pokemonText?.length}
+                    onClick={() => setPokemonCounter(pokemonCounter + 1)}
+                  >
+                    <i className="fa-solid fa-circle-arrow-right"></i>
+                  </button>
+                </div>
+              ) : (
+                ""
+              )}
 
               <p>
                 {pokemonText.length
@@ -180,7 +223,7 @@ const Card = () => {
             </div>
 
             <div className="card-footer">
-              <p>Designed by MSR, {new Date().getFullYear()}</p>
+              <p className="card-footer-p">Designed by MSR, {new Date().getFullYear()}</p>
             </div>
           </div>
         </div>
