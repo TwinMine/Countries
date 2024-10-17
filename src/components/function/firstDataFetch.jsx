@@ -7,14 +7,13 @@ async function firstDataFetch(
     setSearchedPokemon, 
     setSecondDataFetch
 ) {
-    console.log(typeof searchedPokemon);
     
     if (!searchedPokemon) {
         return alert("Type in your favorite Pokémon");
     }
 
     try {
-        const response = await fetch(`${url}/${typeof searchedPokemon === String ? searchedPokemon.toLowerCase() : searchedPokemon}`, {
+        const response = await fetch(`${url}/${typeof searchedPokemon === "string" ? searchedPokemon.toLowerCase() : searchedPokemon}`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
