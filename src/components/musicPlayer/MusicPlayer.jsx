@@ -9,6 +9,7 @@ const MusicPlayer = () => {
   const [savedVolume, setSavedVolume] = useState(0);
   const [muted, setMuted] = useState(false);
 const [url, setUrl] = useState("");
+const [cooldown, setCooldown] = useState(true)
 
   const musicContainer = [
     {
@@ -69,6 +70,12 @@ const [url, setUrl] = useState("");
     setVolume(newVolume); 
   };
 
+  if(cooldown){
+    setTimeout(() => {
+      setCooldown(false)
+    }, 5000);
+  }
+
   return (
     <div>
       <div className="player">
@@ -123,14 +130,15 @@ const [url, setUrl] = useState("");
       {musicContainer.map((track, index) => (
         <button
           key={index}
-          disabled={url === track.url}
+          disabled={url === track.url || cooldown}
           style={{
-            backgroundColor: url === track.url ? "gray" : "",
+            backgroundColor: url === track.url || cooldown ? "gray" : "",
             cursor: url === track.url ? "not-allowed" : "pointer",
           }}
           onClick={() => {
             setUrl(track.url);
             setPlay(true);
+            setCooldown(true)
           }}
         >
           {track.title}

@@ -14,18 +14,25 @@ const Search = () => {
     const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
     const { secondDataFetch, setSecondDataFetch } = useContext(SecondDataFetch);
     const { pokemonCounter, setPokemonCounter } = useContext(PokemonCounter);
+    const [cooldown, setCooldown] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        firstDataFetch(
-            searchedPokemon, 
-            url, 
-            setPokemonCounter, 
-            setPokemonData, 
-            setPokemonPicture, 
-            setSearchedPokemon, 
-            setSecondDataFetch
-        );
+        if (!cooldown) {
+            firstDataFetch(
+                searchedPokemon, 
+                url, 
+                setPokemonCounter, 
+                setPokemonData, 
+                setPokemonPicture, 
+                setSearchedPokemon, 
+                setSecondDataFetch
+            );
+            setCooldown(true);
+            setTimeout(() => {
+                setCooldown(false);
+            }, 5000);
+        }
     };
 
     return (
@@ -39,7 +46,11 @@ const Search = () => {
                     onChange={(e) => setSearchedPokemon(e.target.value)}
                     required
                 />
-                <button disabled={!searchedPokemon} style={{ background: !searchedPokemon ? "gray" : "" }} type="submit">
+                <button 
+                    disabled={!searchedPokemon || cooldown} 
+                    style={{ background: !searchedPokemon || cooldown ? "gray" : "" }} 
+                    type="submit"
+                >
                     <i className="fa-brands fa-golang"></i>
                 </button>
             </form>

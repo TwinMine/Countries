@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "./translater.css";
 
 const Translater = ({
@@ -13,17 +13,30 @@ const Translater = ({
   allTypes,
   pokemonData,
 }) => {
-  useEffect(() => {
-    typeFunction(
-      cardColor.filter((type) => pokemonType?.includes(type.typ)),
-      typeLanguage,
-      setTypeLanguage,
-      language
-    );
-  }, [language]);
+
+  const [cooldown, setCooldown] = useState(false);
+
+  const handleLanguageChange = (newLanguage) => {
+    if (!cooldown) {
+      setLanguage(newLanguage);
+      setPokemonCounter(0);
+      setCooldown(true);
+
+      typeFunction(
+        cardColor.filter((type) => pokemonType?.includes(type.typ)),
+        typeLanguage,
+        setTypeLanguage,
+        newLanguage
+      );
+
+      setTimeout(() => {
+        setCooldown(false);
+      }, 5000);
+    }
+  };
 
   useEffect(() => {
-    setTypeLanguage(allTypes);
+    setTypeLanguage(allTypes); 
   }, [allTypes]);
 
   useEffect(() => {
@@ -31,103 +44,50 @@ const Translater = ({
       cardColor.filter((type) => pokemonType?.includes(type.typ))
     );
   }, [pokemonData]);
+
   return (
     <div className="language-buttons">
       <h2>Different Languages</h2>
       <div>
         <button
-        style={{background: language === "en" ? "gray" : ""}}
-        disabled={language === "en"}
-          onClick={() => {
-            setLanguage("en");
-            setPokemonCounter(0);
-            typeFunction(
-              cardColor.filter((type) => pokemonType?.includes(type.typ)),
-              typeLanguage,
-              setTypeLanguage,
-              language
-            );
-          }}
+          style={{ background: language === "en" || cooldown ? "gray" : "" }}
+          disabled={language === "en" || cooldown}
+          onClick={() => handleLanguageChange("en")}
         >
           English
         </button>
         <button
-        style={{background: language === "es" ? "gray" : ""}}
-        disabled={language === "es"}
-          onClick={() => {
-            setLanguage("es");
-            setPokemonCounter(0);
-            typeFunction(
-              cardColor.filter((type) => pokemonType?.includes(type.typ)),
-              typeLanguage,
-              setTypeLanguage,
-              language
-            );
-          }}
+          style={{ background: language === "es" || cooldown ? "gray" : "" }}
+          disabled={language === "es" || cooldown}
+          onClick={() => handleLanguageChange("es")}
         >
           Spanish
         </button>
         <button
-        style={{background: language === "de" ? "gray" : ""}}
-        disabled={language === "de"}
-          onClick={() => {
-            setLanguage("de");
-            setPokemonCounter(0);
-            typeFunction(
-              cardColor.filter((type) => pokemonType?.includes(type.typ)),
-              typeLanguage,
-              setTypeLanguage,
-              language
-            );
-          }}
+          style={{ background: language === "de" || cooldown ? "gray" : "" }}
+          disabled={language === "de" || cooldown}
+          onClick={() => handleLanguageChange("de")}
         >
           German
         </button>
         <button
-        style={{background: language === "ja" ? "gray" : ""}}
-        disabled={language === "ja"}
-          onClick={() => {
-            setLanguage("ja");
-            setPokemonCounter(0);
-            typeFunction(
-              cardColor.filter((type) => pokemonType?.includes(type.typ)),
-              typeLanguage,
-              setTypeLanguage,
-              language
-            );
-          }}
+          style={{ background: language === "ja" || cooldown ? "gray" : "" }}
+          disabled={language === "ja" || cooldown}
+          onClick={() => handleLanguageChange("ja")}
         >
           Japanese
         </button>
         <button
-        style={{background: language === "it" ? "gray" : ""}}
-        disabled={language === "it"}
-          onClick={() => {
-            setLanguage("it");
-            setPokemonCounter(0);
-            typeFunction(
-              cardColor.filter((type) => pokemonType?.includes(type.typ)),
-              typeLanguage,
-              setTypeLanguage,
-              language
-            );
-          }}
+          style={{ background: language === "it" || cooldown ? "gray" : "" }}
+          disabled={language === "it" || cooldown}
+          onClick={() => handleLanguageChange("it")}
         >
           Italian
         </button>
         <button
-        style={{background: language === "fr" ? "gray" : ""}}
-        disabled={language === "fr"}
-          onClick={() => {
-            setLanguage("fr");
-            setPokemonCounter(0);
-            typeFunction(
-              cardColor.filter((type) => pokemonType?.includes(type.typ)),
-              typeLanguage,
-              setTypeLanguage,
-              language
-            );
-          }}
+          style={{ background: language === "fr" || cooldown ? "gray" : "" }}
+          disabled={language === "fr" || cooldown}
+          onClick={() => handleLanguageChange("fr")}
         >
           French
         </button>

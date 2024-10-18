@@ -19,6 +19,13 @@ const Card = () => {
   const { pokemonCounter, setPokemonCounter } = useContext(PokemonCounter);
   const [language, setLanguage] = useState("en");
   const [searchedPokemon, setSearchedPokemon] = useState("");
+  const [cooldown, setCooldown] = useState(true)
+  
+if(cooldown){
+    setTimeout(() => {
+      setCooldown(false)
+    }, 5000);
+  }
 
   const cardBackground =
     pokemonData?.types?.[0]?.type &&
@@ -35,6 +42,7 @@ const Card = () => {
   const height = pokemonData.height / 10;
   const baseExperience = pokemonData.base_experience;
 
+  
   useEffect(() => {
     typeFunction(
       cardColor.filter((type) => pokemonType?.includes(type.typ)),
@@ -157,8 +165,10 @@ const Card = () => {
               <p>Type:</p>
               <div className="type-div">
                 <button
+                style={{background: cooldown || pokemonData.id <= 1 || pokemonData.id >= 1026 ? "gray" : ""}}
+                disabled={cooldown || pokemonData.id <= 1 || pokemonData.id >= 1025}
                   className="next-pokemon"
-                  onClick={() => handlePokemonChange(pokemonData.id - 1)}
+                  onClick={() => {handlePokemonChange(pokemonData.id - 1) ,setCooldown(true)}}
                 >
                   <i className="fa-solid fa-circle-arrow-left"></i>
                 </button>
@@ -172,8 +182,10 @@ const Card = () => {
                   </div>
                 ))}{" "}
                 <button
+                style={{background: cooldown || pokemonData.id >= 1025 ? "gray" : ""}}
+                 disabled={cooldown || pokemonData.id >= 1025}
                   className="next-pokemon"
-                  onClick={() => handlePokemonChange(pokemonData.id + 1)}
+                  onClick={() => {handlePokemonChange(pokemonData.id + 1), setCooldown(true)}}
                 >
                   <i className="fa-solid fa-circle-arrow-right"></i>
                 </button>
