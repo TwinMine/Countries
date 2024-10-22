@@ -9,6 +9,7 @@ import PokemonCounter from "../../context/PokemonCounter";
 import { typeFunction } from "../function/TypeFunction";
 import Translater from "../translater/Translater";
 import { firstDataFetch } from "../function/firstDataFetch";
+import HoverText from "../function/HoverText";
 
 const url = import.meta.env.VITE_URL;
 
@@ -19,11 +20,11 @@ const Card = () => {
   const { pokemonCounter, setPokemonCounter } = useContext(PokemonCounter);
   const [language, setLanguage] = useState("en");
   const [searchedPokemon, setSearchedPokemon] = useState("");
-  const [cooldown, setCooldown] = useState(true)
-  
-if(cooldown){
+  const [cooldown, setCooldown] = useState(true);
+
+  if (cooldown) {
     setTimeout(() => {
-      setCooldown(false)
+      setCooldown(false);
     }, 5000);
   }
 
@@ -42,7 +43,6 @@ if(cooldown){
   const height = pokemonData.height / 10;
   const baseExperience = pokemonData.base_experience;
 
-  
   useEffect(() => {
     typeFunction(
       cardColor.filter((type) => pokemonType?.includes(type.typ)),
@@ -164,14 +164,31 @@ if(cooldown){
             <div className="type-container">
               <p>Type:</p>
               <div className="type-div">
-                <button
-                style={{background: cooldown || pokemonData.id <= 1 || pokemonData.id >= 1026 ? "gray" : ""}}
-                disabled={cooldown || pokemonData.id <= 1 || pokemonData.id >= 1025}
-                  className="next-pokemon"
-                  onClick={() => {handlePokemonChange(pokemonData.id - 1) ,setCooldown(true)}}
-                >
-                  <i className="fa-solid fa-circle-arrow-left"></i>
-                </button>
+
+                <div className="swap-pokemon-button-container">
+                  <HoverText text={"Previos"} />
+                  <button
+                    style={{
+                      background:
+                        cooldown ||
+                        pokemonData.id <= 1 ||
+                        pokemonData.id >= 1026
+                          ? "gray"
+                          : "",
+                    }}
+                    disabled={
+                      cooldown || pokemonData.id <= 1 || pokemonData.id >= 1025
+                    }
+                    className="swap-pokemon-button"
+                    onClick={() => {
+                      handlePokemonChange(pokemonData.id - 1),
+                        setCooldown(true);
+                    }}
+                  >
+                    <i className="fa-solid fa-circle-arrow-left"></i>
+                  </button>
+                </div>
+
                 {languageText[3].type.map((item) => (
                   <div className="type" key={item.id}>
                     <p>
@@ -180,15 +197,26 @@ if(cooldown){
                     </p>
                     <img src={item.symbol} alt={item.typ} />
                   </div>
-                ))}{" "}
-                <button
-                style={{background: cooldown || pokemonData.id >= 1025 ? "gray" : ""}}
-                 disabled={cooldown || pokemonData.id >= 1025}
-                  className="next-pokemon"
-                  onClick={() => {handlePokemonChange(pokemonData.id + 1), setCooldown(true)}}
-                >
-                  <i className="fa-solid fa-circle-arrow-right"></i>
-                </button>
+                ))}
+
+                <div className="swap-pokemon-button-container">
+                  <HoverText text={"Next"} />
+                  <button
+                    style={{
+                      background:
+                        cooldown || pokemonData.id >= 1025 ? "gray" : "",
+                    }}
+                    disabled={cooldown || pokemonData.id >= 1025}
+                    className="swap-pokemon-button"
+                    onClick={() => {
+                      handlePokemonChange(pokemonData.id + 1),
+                        setCooldown(true);
+                    }}
+                  >
+                    <i className="fa-solid fa-circle-arrow-right"></i>
+                  </button>
+                </div>
+
               </div>
             </div>
             <div className="card-informations">
@@ -235,7 +263,9 @@ if(cooldown){
             </div>
 
             <div className="card-footer">
-              <p className="card-footer-p">Designed by MSR, {new Date().getFullYear()}</p>
+              <p className="card-footer-p">
+                Designed by MSR, {new Date().getFullYear()}
+              </p>
             </div>
           </div>
         </div>
