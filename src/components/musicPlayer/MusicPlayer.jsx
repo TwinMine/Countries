@@ -101,7 +101,11 @@ const [cooldown, setCooldown] = useState(true)
         </button>
       </div>
 
-      <div className="text-container">
+      
+
+      <div className="volume-container">
+
+        <div className="text-container">
         <button
           className="button-style"
           onClick={() => setMuted((prevMode) => !prevMode)}
@@ -113,8 +117,6 @@ const [cooldown, setCooldown] = useState(true)
           )}
         </button>
       </div>
-
-      <div className="volume-container">
         <input
           type="range"
           min="0"

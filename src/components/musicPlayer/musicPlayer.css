@@ -1,3 +1,45 @@
 .player{
     display: none;
 }
+
+.volume-container{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.volume-slider{
+    cursor: grab;
+    padding: 10px 0;
+}
+
+.volume-slider:active{
+    cursor: grabbing;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; 
+  height: 8px;
+  background: #ddd; 
+  border-radius: 5px; 
+  outline: none;
+  border: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #ff7f50; 
+  height: 8px;
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ff7f50;
+  cursor: pointer;
+  border: 2px solid #ff7f50;
+  margin-top: -6px; 
+}
