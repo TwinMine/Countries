@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import PokemonData from "../../context/PokemonData";
 import PokemonPicture from "../../context/PokemonPicture";
 import { cardColor } from "../data/cardColor";
@@ -21,13 +21,43 @@ const Card = () => {
   const [language, setLanguage] = useState("en");
   const [searchedPokemon, setSearchedPokemon] = useState("");
   const [cooldown, setCooldown] = useState(true);
+  const [pokemonSound, setPokemonSound] = useState(pokemonData?.cries);
+  const [volume, setVolume] = useState(1);
+
+ 
+  const legacyAudioRef = useRef(null);
+  const latestAudioRef = useRef(null);
+
+  
+  
+  useEffect(() => {
+    if (pokemonData?.cries) {
+      setPokemonSound(pokemonData.cries);
+    }
+  }, [pokemonData]);
+
+  const handlePlayLegacySound = () => {
+    if (legacyAudioRef.current) {
+      legacyAudioRef.current.volume = volume;
+      legacyAudioRef.current.play();
+    }
+  };
+
+  const handlePlayLatestSound = () => {
+    if (latestAudioRef.current) {
+      latestAudioRef.current.volume = volume;
+      latestAudioRef.current.play();
+    }
+  };
 
   if (cooldown) {
     setTimeout(() => {
       setCooldown(false);
     }, 5000);
   }
-
+  
+  
+  
   const cardBackground =
     pokemonData?.types?.[0]?.type &&
     cardColor.find((item) => item.typ === pokemonData.types[0].type.name)
@@ -97,6 +127,10 @@ const Card = () => {
       setSecondDataFetch
     );
   };
+  
+
+  console.log(pokemonData);
+  
 
   return (
     <>
@@ -225,6 +259,48 @@ const Card = () => {
               <p>Height: {height} m</p>
               <p>Base experience: {baseExperience}</p>
             </div>
+
+            <div className="pokemon-cries" style={{justifyContent: pokemonSound?.legacy === null || pokemonSound?.latest === null ? "center" : ""}}>
+            {pokemonSound?.legacy && (
+              <div>
+                <p>Legacy Sound:</p>
+                <audio
+                  key={pokemonSound.legacy}  
+                  ref={legacyAudioRef}
+                >
+                  <source src={pokemonSound.legacy} type="audio/ogg" />
+                </audio>
+                <button onClick={handlePlayLegacySound}><i className="fa-solid fa-play"></i></button>
+              </div>
+            )}
+
+            {pokemonSound?.latest && (
+              <div>
+                <p>Latest Sound:</p>
+                <audio
+                  key={pokemonSound.latest}
+                  ref={latestAudioRef}
+                >
+                  <source src={pokemonSound.latest} type="audio/ogg" />
+                </audio>
+                <button onClick={handlePlayLatestSound}><i className="fa-solid fa-play"></i></button>
+              </div>
+            )}
+    </div>
+    <div>
+            <label htmlFor="volume">Volume: {Math.round(volume * 100)}%</label>
+            <input style={{background: "transparent"}}
+              id="volume"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={volume}
+              onChange={(e) => setVolume(Number(e.target.value))}
+            />
+          </div>
+
+
             <div className="card-text">
               {pokemonText.length > 0 ? (
                 <div className="text-button">

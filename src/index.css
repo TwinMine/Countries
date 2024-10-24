@@ -17,3 +17,8 @@ h3{
     font-family: "Passion One", Arial, Helvetica, sans-serif;
 }
 
+
+html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+}

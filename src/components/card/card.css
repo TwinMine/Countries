@@ -173,3 +173,27 @@
 .swap-pokemon-button-container:hover .hover-text{
     visibility: visible;
 }
+
+.pokemon-cries{
+    display: flex;
+    justify-content: space-around;
+}
+
+.pokemon-cries>div>button{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon-cries>div>button>i{
+    font-size: large;
+}
+
+.pokemon-cries>div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}

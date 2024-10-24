@@ -13,7 +13,6 @@ button {
 }
 
 button:hover {
-  /* background: linear-gradient(90deg, #ff7f50, #ff4500); */
   transform: translateY(-3px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
