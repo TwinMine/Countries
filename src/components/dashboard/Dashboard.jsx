@@ -29,7 +29,7 @@ const Dashboard = () => {
     };
 
     return (
-        <div onClick={handleDashboardClick}>
+        <div onClick={handleDashboardClick} onTouchStart={handleDashboardClick} onTouchMove={handleDashboardClick}>
             <Header />
             <Search />
             <Card />
