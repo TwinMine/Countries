@@ -290,8 +290,8 @@ const Card = () => {
               <label htmlFor="volume">
                 Volume: {Math.round(volume * 100)}%
               </label>
-              <input
-                style={{ background: "transparent", touchAction: "none" }}
+              <input className="volume-slider"
+                style={{ background: "transparent", touchAction: "none"}}
                 id="volume"
                 type="range"
                 min="0"
