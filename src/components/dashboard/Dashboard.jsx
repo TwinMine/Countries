@@ -35,7 +35,7 @@ const Dashboard = () => {
     return (
         <>
             {/* Audio-Element für den Klicksound */}
-            <audio ref={audioRef} src="src/assets/click-sound.ogg" preload="auto" />
+            <audio ref={audioRef} src="src/assets/click-sound.mp3" preload="auto" />
             
             {/* Initialisierungsknopf, falls Audio noch nicht aktiviert wurde */}
             {!isAudioInitialized && (
