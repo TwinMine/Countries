@@ -11,25 +11,8 @@ import useSound from 'use-sound';
 const Dashboard = () => {
     const [play] = useSound("src/assets/click-sound.ogg");
 
-    const BoopButton = () => {
-      return (
-          <button 
-              onClick={(e) => {
-                  e.stopPropagation(); // Verhindert das Auslösen des Dashboard-Klicks
-                  play(); // Klicksound abspielen
-              }}
-          >
-              Boop!
-          </button>
-      );
-  };
-
-    const handleDashboardClick = () => {
-        play();
-    };
-
     return (
-        <div onClick={handleDashboardClick} onTouchStart={handleDashboardClick} onTouchMove={handleDashboardClick}>
+        <div onClick={play}>
             <Header />
             <Search />
             <Card />
@@ -37,7 +20,6 @@ const Dashboard = () => {
             <ColorSwitch />
             <MusicPlayer />
             <Footer />
-            <BoopButton />
         </div>
     );
 };
