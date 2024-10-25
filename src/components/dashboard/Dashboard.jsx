@@ -16,7 +16,7 @@ const Dashboard = () => {
         if (audioRef.current) {
             audioRef.current.currentTime = 0; // Setzt den Startpunkt des Sounds zurück
             audioRef.current.play().catch(error => {
-                console.log("Fehler beim Abspielen des Audios:", error);
+               alert("Fehler beim Abspielen des Audios:", error);
             });
         }
     };
