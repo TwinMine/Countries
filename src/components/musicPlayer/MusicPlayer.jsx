@@ -117,7 +117,7 @@ const [cooldown, setCooldown] = useState(true)
           )}
         </button>
       </div>
-        <input
+        <input style={{touchAction:"none"}}
           type="range"
           min="0"
           max="1"

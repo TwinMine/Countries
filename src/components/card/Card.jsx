@@ -291,7 +291,7 @@ const Card = () => {
                 Volume: {Math.round(volume * 100)}%
               </label>
               <input
-                style={{ background: "transparent" }}
+                style={{ background: "transparent", touchAction: "none" }}
                 id="volume"
                 type="range"
                 min="0"
