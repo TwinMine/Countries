@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Card from "../card/Card";
 import ColorSwitch from "../colorSwitch/ColorSwitch";
 import Extra from "../extra/Extra";
@@ -13,15 +12,24 @@ const Dashboard = () => {
     const [play] = useSound("src/assets/click-sound.ogg");
 
     const BoopButton = () => {
-        return <button onClick={play}>Boop!</button>;
-    };
+      return (
+          <button 
+              onClick={(e) => {
+                  e.stopPropagation(); // Verhindert das Auslösen des Dashboard-Klicks
+                  play(); // Klicksound abspielen
+              }}
+          >
+              Boop!
+          </button>
+      );
+  };
 
     const handleDashboardClick = () => {
         play();
     };
 
     return (
-        <div onClick={handleDashboardClick} onTouchStart={handleDashboardClick}>
+        <div onClick={handleDashboardClick}>
             <Header />
             <Search />
             <Card />
