@@ -8,9 +8,19 @@ import Search from "../search/Search";
 import "./dashboard.css";
 import useSound from 'use-sound';
 import clickSound from "../../assets/click-sound.mp3"
+import { useState } from "react";
 
 const Dashboard = () => {
-    const [play] = useSound(clickSound);
+    const [clickSource, setClickeSource] = useState(clickSound)
+    const [play] = useSound(clickSource);
+    const changeClickSound = () => {
+        if(clickSource){
+            setClickeSource(null)
+        }
+        else{
+            setClickeSource(clickSound)
+        }
+    }
 
     return (
         <div onClick={play}>
@@ -21,6 +31,7 @@ const Dashboard = () => {
             <ColorSwitch />
             <MusicPlayer />
             <Footer />
+            <button onClick={() => changeClickSound()}>{clickSource ? "Sound on" : "Sound off"}</button>
         </div>
     );
 };
