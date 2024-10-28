@@ -9,6 +9,7 @@ import "./dashboard.css";
 import useSound from 'use-sound';
 import clickSound from "../../assets/click-sound.mp3"
 import { useState } from "react";
+import LastChoosenPokemon from "../lastChoosenPokemon/LastChoosenPokemon";
 
 const Dashboard = () => {
     const [clickSource, setClickeSource] = useState(clickSound)
@@ -26,6 +27,7 @@ const Dashboard = () => {
         <div onClick={play}>
             <Header />
             <Search />
+            <LastChoosenPokemon />
             <Card />
             <Extra />
             <ColorSwitch />

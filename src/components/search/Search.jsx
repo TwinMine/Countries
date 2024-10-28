@@ -5,6 +5,7 @@ import SecondDataFetch from "../../context/SecondDataFetch";
 import "./search.css";
 import PokemonCounter from "../../context/PokemonCounter";
 import { firstDataFetch } from "../function/firstDataFetch";
+import LastPokemon from "../../context/LastPokemon";
 
 const url = import.meta.env.VITE_URL;
 
@@ -14,6 +15,7 @@ const Search = () => {
     const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
     const { secondDataFetch, setSecondDataFetch } = useContext(SecondDataFetch);
     const { pokemonCounter, setPokemonCounter } = useContext(PokemonCounter);
+    const {lastPokemon, setLastPokemon} = useContext(LastPokemon)
     const [cooldown, setCooldown] = useState(false);
 
     const handleSubmit = (e) => {
@@ -26,7 +28,10 @@ const Search = () => {
                 setPokemonData, 
                 setPokemonPicture, 
                 setSearchedPokemon, 
-                setSecondDataFetch
+                setSecondDataFetch,
+                lastPokemon,
+                setLastPokemon,
+                pokemonData
             );
             setCooldown(true);
             setTimeout(() => {
