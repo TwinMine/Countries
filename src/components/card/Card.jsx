@@ -23,13 +23,12 @@ const Card = () => {
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
   const { secondDataFetch, setSecondDataFetch } = useContext(SecondDataFetch);
   const { pokemonCounter, setPokemonCounter } = useContext(PokemonCounter);
-  const {lastPokemon, setLastPokemon} = useContext(LastPokemon);
+  const { lastPokemon, setLastPokemon } = useContext(LastPokemon);
   const [language, setLanguage] = useState("en");
   const [searchedPokemon, setSearchedPokemon] = useState("");
   const [cooldown, setCooldown] = useState(true);
   const [pokemonSound, setPokemonSound] = useState(pokemonData?.cries);
   const [volume, setVolume] = useState(0.2);
-
 
   const legacyAudioRef = useRef(null);
   const latestAudioRef = useRef(null);
@@ -97,9 +96,12 @@ const Card = () => {
 
   const languageText = [
     {
-      name: secondDataFetch?.names?.filter(
-        (item) => item.language.name === language
-      ),
+      name:
+        language === "en"
+          ? [{ name: pokemonData.name }]
+          : secondDataFetch?.names?.filter(
+              (item) => item.language.name === language
+            ),
     },
     {
       animal: secondDataFetch?.genera?.filter(
@@ -162,14 +164,14 @@ const Card = () => {
             className="pokemon-card"
           >
             <div className="header">
-              <h2>{pokemonName}</h2>
+              <h2 className="pokemon-name">{pokemonName}</h2>
               <p>Order: {pokemonId}</p>
             </div>
 
-            <CardPictures 
-            pokemonData={pokemonData} 
-            pokemonPicture={pokemonPicture} 
-            defaultPic={defaultPic}
+            <CardPictures
+              pokemonData={pokemonData}
+              pokemonPicture={pokemonPicture}
+              defaultPic={defaultPic}
             />
 
             <Type
@@ -197,10 +199,10 @@ const Card = () => {
               setVolume={setVolume}
             />
 
-            <CardText 
-            pokemonText={pokemonText}
-            pokemonCounter={pokemonCounter}
-            setPokemonCounter={setPokemonCounter} 
+            <CardText
+              pokemonText={pokemonText}
+              pokemonCounter={pokemonCounter}
+              setPokemonCounter={setPokemonCounter}
             />
 
             <div className="card-footer">

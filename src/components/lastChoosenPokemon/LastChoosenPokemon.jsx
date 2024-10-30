@@ -46,7 +46,7 @@ const LastChoosenPokemon = () => {
             <h2>Your last picked Pokemon:</h2>
             <div>
             {lastPokemon.length >= 1 ? lastPokemon.map((item, key) => (
-                <button disabled={cooldown || item === pokemonData.species.name} style={{background: cooldown || item === pokemonData.species.name ? "gray" : ""}} onClick={() => handlePokemonChange(item)} key={key}>{item.slice(0,1).toUpperCase() + item.slice(1)}
+                <button disabled={cooldown || item === pokemonData.species.name || item === pokemonData.name} style={{background: cooldown || item === pokemonData.species.name || item === pokemonData.name ? "gray" : ""}} onClick={() => handlePokemonChange(item)} key={key}>{item.slice(0,1).toUpperCase() + item.slice(1)}
                 </button>
             )) : <p>No recent pokemon found</p>}</div>
         </div>

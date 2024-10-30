@@ -43,19 +43,19 @@ async function firstDataFetch(
       });
       await formData(newData.species.url, setSecondDataFetch);
 
-      if (lastPokemon.includes(newData.species.name)) {
+      if (
+        lastPokemon.includes(newData.species.name) ||
+        lastPokemon.includes(newData.name)
+      ) {
         return;
       }
       if (lastPokemon.length >= 5) {
         setLastPokemon((prevLastPokemon) => [
           ...prevLastPokemon.slice(1),
-          newData.species.name,
+          newData.name,
         ]);
       } else {
-        setLastPokemon((prevLastPokemon) => [
-          ...prevLastPokemon,
-          newData.species.name,
-        ]);
+        setLastPokemon((prevLastPokemon) => [...prevLastPokemon, newData.name]);
       }
     } else {
       console.log(newData.response);
