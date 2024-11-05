@@ -1,15 +1,13 @@
-import Card from "../card/Card";
 import ColorSwitch from "../colorSwitch/ColorSwitch";
-import Extra from "../extra/Extra";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import MusicPlayer from "../musicPlayer/MusicPlayer";
-import Search from "../search/Search";
 import "./dashboard.css";
 import useSound from 'use-sound';
 import clickSound from "../../assets/click-sound.mp3"
 import { useState } from "react";
-import LastChoosenPokemon from "../lastChoosenPokemon/LastChoosenPokemon";
+import CardComponents from "./CardComponents/CardComponents";
+import {NavLink, Outlet} from "react-router-dom"
 
 const Dashboard = () => {
     const [clickSource, setClickeSource] = useState(clickSound)
@@ -26,13 +24,13 @@ const Dashboard = () => {
     return (
         <div onClick={play}>
             <Header />
-            <Search />
-            <LastChoosenPokemon />
-            <Card />
-            <Extra />
+            <NavLink to="/search">Search for Pokemon</NavLink>
+            <NavLink to="/pokemon-list">All Pokemons</NavLink>
+            <Outlet />
             <ColorSwitch />
             <MusicPlayer />
             <Footer />
+            
             <button onClick={() => changeClickSound()}>{clickSource ? "Sound on" : "Sound off"}</button>
         </div>
     );

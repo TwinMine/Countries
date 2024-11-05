@@ -1,6 +1,5 @@
 import { useContext, useState } from "react";
-import PokemonPicture from "../../context/PokemonPicture";
-import PokemonData from "../../context/PokemonData";
+
 import Normal from "./pokemon-pics/Normal";
 import Other from "./pokemon-pics/Other";
 import GenerationI from "./pokemon-pics/GenerationI";
@@ -11,6 +10,8 @@ import GenerationV from "./pokemon-pics/GenerationV";
 import GenerationVI from "./pokemon-pics/GenerationVI";
 import GenerationVII from "./pokemon-pics/GenerationVII";
 import GenerationVIII from "./pokemon-pics/GenerationVIII";
+import PokemonData from "../../../../context/PokemonData";
+import PokemonPicture from "../../../../context/PokemonPicture";
 
 const Extra = () => {
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);

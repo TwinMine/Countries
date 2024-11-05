@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import PokemonData from "../../../context/PokemonData";
-import PokemonPicture from "../../../context/PokemonPicture";
+import PokemonData from "../../../../../context/PokemonData";
+import PokemonPicture from "../../../../../context/PokemonPicture";
 
 const GenerationV = () => {
   const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);

@@ -1,4 +1,4 @@
-import HoverText from "../../function/HoverText";
+import HoverText from "../../../function/HoverText";
 
 const Type = ({cooldown, pokemonData, handlePokemonChange, setCooldown, languageText}) => {
     return(

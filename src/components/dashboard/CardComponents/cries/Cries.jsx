@@ -8,6 +8,7 @@ const Cries = ({
   handlePlayLegacySound,
   volume,
   setVolume,
+  pokemonName
 }) => {
   const [cooldown, setCooldown] = useState(false);
 
@@ -28,9 +29,11 @@ const Cries = ({
               : "",
         }}
       >
+        <h4>{pokemonName[0].toUpperCase() + pokemonName.slice(1)}'s Sound</h4>
+        <div>
         {pokemonSound?.legacy && (
           <div>
-            <p>Old Sound:</p>
+            
             <audio key={pokemonSound.legacy} ref={legacyAudioRef}>
               <source src={pokemonSound.legacy} type="audio/ogg" />
             </audio>
@@ -41,14 +44,13 @@ const Cries = ({
                 handlePlayLegacySound(), setCooldown(true);
               }}
             >
-              <i className="fa-solid fa-play"></i>
+              <i className="fa-solid fa-music"></i>
             </button>
           </div>
         )}
 
         {pokemonSound?.latest && (
           <div>
-            <p>New Sound:</p>
             <audio key={pokemonSound.latest} ref={latestAudioRef}>
               <source src={pokemonSound.latest} type="audio/ogg" />
             </audio>
@@ -59,10 +61,10 @@ const Cries = ({
                 handlePlayLatestSound(), setCooldown(true);
               }}
             >
-              <i className="fa-solid fa-play"></i>
+             <i className="fa-solid fa-music"></i>
             </button>
           </div>
-        )}
+        )}</div>
       </div>
       <div className="cries-volume">
         <label htmlFor="volume">Volume: {Math.round(volume * 100)}%</label>

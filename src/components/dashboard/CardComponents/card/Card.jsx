@@ -1,20 +1,20 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import PokemonData from "../../context/PokemonData";
-import PokemonPicture from "../../context/PokemonPicture";
-import { cardColor } from "../data/cardColor";
+import { cardColor } from "../../../data/cardColor";
 import defaultPic from "/not-implented.jpg";
 import "./card.css";
-import SecondDataFetch from "../../context/SecondDataFetch";
-import PokemonCounter from "../../context/PokemonCounter";
-import { typeFunction } from "../function/TypeFunction";
-import Translater from "../translater/Translater";
-import { firstDataFetch } from "../function/firstDataFetch";
-import HoverText from "../function/HoverText";
-import Cries from "./cries/Cries";
-import Type from "./type/Type";
+import Translater from "../../../translater/Translater";
+import { firstDataFetch } from "../../../function/firstDataFetch";
+import Cries from "../../../dashboard/CardComponents/cries/Cries";
 import CardText from "./cardText/CardText";
-import CardPictures from "./cardPictures/CardPictures";
-import LastPokemon from "../../context/LastPokemon";
+import PokemonData from "../../../../context/PokemonData";
+import PokemonPicture from "../../../../context/PokemonPicture";
+import SecondDataFetch from "../../../../context/SecondDataFetch";
+import PokemonCounter from "../../../../context/PokemonCounter";
+import LastPokemon from "../../../../context/LastPokemon";
+import { typeFunction } from "../../../function/TypeFunction";
+import Type from "../type/Type";
+import CardPictures from "../card/cardPictures/CardPictures";
+
 
 const url = import.meta.env.VITE_URL;
 
@@ -197,6 +197,7 @@ const Card = () => {
               handlePlayLegacySound={handlePlayLegacySound}
               volume={volume}
               setVolume={setVolume}
+              pokemonName={pokemonName}
             />
 
             <CardText

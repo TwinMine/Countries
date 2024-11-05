@@ -1,11 +1,11 @@
 import { useContext, useState } from "react";
-import PokemonData from "../../context/PokemonData";
-import PokemonPicture from "../../context/PokemonPicture";
-import SecondDataFetch from "../../context/SecondDataFetch";
 import "./search.css";
-import PokemonCounter from "../../context/PokemonCounter";
-import { firstDataFetch } from "../function/firstDataFetch";
-import LastPokemon from "../../context/LastPokemon";
+import PokemonData from "../../../../context/PokemonData";
+import PokemonPicture from "../../../../context/PokemonPicture";
+import SecondDataFetch from "../../../../context/SecondDataFetch";
+import PokemonCounter from "../../../../context/PokemonCounter";
+import LastPokemon from "../../../../context/LastPokemon";
+import { firstDataFetch } from "../../../function/firstDataFetch";
 
 const url = import.meta.env.VITE_URL;
 

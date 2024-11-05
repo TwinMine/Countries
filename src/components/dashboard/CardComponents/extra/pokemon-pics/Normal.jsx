@@ -1,5 +1,5 @@
-import PokemonPicture from "../../../context/PokemonPicture";
-import PokemonData from "../../../context/PokemonData";
+import PokemonData from "../../../../../context/PokemonData";
+import PokemonPicture from "../../../../../context/PokemonPicture";
 import { useContext } from "react";
 
 const Normal = () => {

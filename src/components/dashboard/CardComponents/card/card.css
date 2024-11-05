@@ -176,26 +176,23 @@
 
 .pokemon-cries{
     display: flex;
-    justify-content: space-around;
-}
-
-.pokemon-cries>div>button{
-    height: 40px;
-    width: 40px;
-    display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-.pokemon-cries>div>button>i{
+.pokemon-cries>h4{
+    text-align: center;
+}
+
+.pokemon-cries>div>div>button>i{
     font-size: large;
 }
 
 .pokemon-cries>div{
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
+    
 }
 
 .cries-volume{

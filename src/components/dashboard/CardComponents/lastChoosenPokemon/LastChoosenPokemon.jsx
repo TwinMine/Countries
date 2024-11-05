@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
-import LastPokemon from "../../context/LastPokemon";
 import "../lastChoosenPokemon/lastChoosenPokemon.css";
-import { firstDataFetch } from "../function/firstDataFetch";
-import PokemonCounter from "../../context/PokemonCounter";
-import SecondDataFetch from "../../context/SecondDataFetch";
-import PokemonPicture from "../../context/PokemonPicture";
-import PokemonData from "../../context/PokemonData";
+import PokemonCounter from "../../../../context/PokemonCounter";
+import SecondDataFetch from "../../../../context/SecondDataFetch";
+import PokemonPicture from "../../../../context/PokemonPicture";
+import PokemonData from "../../../../context/PokemonData";
+import LastPokemon from "../../../../context/LastPokemon";
+import { firstDataFetch } from "../../../function/firstDataFetch";
+
 const url = import.meta.env.VITE_URL;
 
 const LastChoosenPokemon = () => {
