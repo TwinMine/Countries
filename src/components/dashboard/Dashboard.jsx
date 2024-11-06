@@ -4,25 +4,34 @@ import Header from "../header/Header";
 import MusicPlayer from "../musicPlayer/MusicPlayer";
 import "./dashboard.css";
 import useSound from 'use-sound';
-import clickSound from "../../assets/click-sound.mp3"
-import { useState } from "react";
-import CardComponents from "./CardComponents/CardComponents";
-import {NavLink, Outlet} from "react-router-dom"
+import clickSound from "../../assets/click-sound.mp3";
+import { useState, useEffect } from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
 const Dashboard = () => {
-    const [clickSource, setClickeSource] = useState(clickSound)
+    const [clickSource, setClickSource] = useState(clickSound);
     const [play] = useSound(clickSource);
+
     const changeClickSound = () => {
-        if(clickSource){
-            setClickeSource(null)
-        }
-        else{
-            setClickeSource(clickSound)
-        }
-    }
+        setClickSource(clickSource ? null : clickSound);
+    };
+
+    useEffect(() => {
+        const handleButtonClick = (event) => {
+            console.log(event.target.tagName);
+            
+            if (event.target.tagName === "BUTTON" || event.target.tagName === "A") {
+                play();
+            }
+        };
+        document.addEventListener("click", handleButtonClick);
+        return () => {
+            document.removeEventListener("click", handleButtonClick);
+        };
+    }, [play]);
 
     return (
-        <div onClick={play}>
+        <div>
             <Header />
             <NavLink to="/search">Search for Pokemon</NavLink>
             <NavLink to="/pokemon-list">All Pokemons</NavLink>
@@ -31,7 +40,9 @@ const Dashboard = () => {
             <MusicPlayer />
             <Footer />
             
-            <button onClick={() => changeClickSound()}>{clickSource ? "Sound on" : "Sound off"}</button>
+            <button onClick={changeClickSound}>
+                {clickSource ? "Sound on" : "Sound off"}
+            </button>
         </div>
     );
 };
