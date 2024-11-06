@@ -183,6 +183,7 @@ const Card = () => {
             />
 
             <div className="card-informations">
+              <p>Full Name: {pokemonName}</p>
               <p>Animal: {pokemonAnimal}</p>
               <p>Weight: {weight} kg</p>
               <p>Height: {height} m</p>

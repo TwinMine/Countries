@@ -10,6 +10,9 @@ async function firstDataFetch(
   setLastPokemon,
   pokemonData
 ) {
+
+  console.log(searchedPokemon);
+  
   if (!searchedPokemon) {
     return alert("Type in your favorite Pokémon");
   }
@@ -30,7 +33,7 @@ async function firstDataFetch(
     );
     const newData = await response.json();
 
-    if (newData?.species?.name === pokemonData?.species?.name) {
+    if (newData?.species?.name === pokemonData?.species?.name && pokemonData?.id === newData?.id) {
       return alert("This is your current pokemon!");
     }
 

@@ -33,11 +33,11 @@ const AllPokemons = () => {
     },[])
     return(
         <>
-        <ul>
+        <div className="pokemon-list">
         {pokemonList && pokemonList.map((item, key) => 
-            (<li key={key}>{item.name}</li>)
+            (<button key={key}>{item.name}</button>)
         )}
-        </ul>
+        </div>
         </>
     )
 }
