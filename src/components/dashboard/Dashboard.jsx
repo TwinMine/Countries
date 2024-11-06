@@ -18,8 +18,6 @@ const Dashboard = () => {
 
     useEffect(() => {
         const handleButtonClick = (event) => {
-            console.log(event.target.tagName);
-            
             if (event.target.tagName === "BUTTON" || event.target.tagName === "A") {
                 play();
             }

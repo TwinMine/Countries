@@ -164,7 +164,7 @@ const Card = () => {
             className="pokemon-card"
           >
             <div className="header">
-              <h2 className="pokemon-name">{pokemonName}</h2>
+              <h2 className="pokemon-name">{pokemonName.split("-")[0]}</h2>
               <p>Order: {pokemonId}</p>
             </div>
 
