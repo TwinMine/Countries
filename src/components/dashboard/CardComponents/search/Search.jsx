@@ -1,27 +1,29 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./search.css";
 import PokemonData from "../../../../context/PokemonData";
 import PokemonPicture from "../../../../context/PokemonPicture";
 import SecondDataFetch from "../../../../context/SecondDataFetch";
 import PokemonCounter from "../../../../context/PokemonCounter";
 import LastPokemon from "../../../../context/LastPokemon";
+import SearchedPokemon from "../../../../context/SearchedPokemon";
 import { firstDataFetch } from "../../../function/firstDataFetch";
+import Cooldown from "../../../../context/Cooldown";
 
 const url = import.meta.env.VITE_URL;
 
 const Search = () => {
-    const [searchedPokemon, setSearchedPokemon] = useState("");
     const { pokemonData, setPokemonData } = useContext(PokemonData);
     const { pokemonPicture, setPokemonPicture } = useContext(PokemonPicture);
     const { secondDataFetch, setSecondDataFetch } = useContext(SecondDataFetch);
     const { pokemonCounter, setPokemonCounter } = useContext(PokemonCounter);
-    const {lastPokemon, setLastPokemon} = useContext(LastPokemon)
-    const [cooldown, setCooldown] = useState(false);
+    const { lastPokemon, setLastPokemon } = useContext(LastPokemon);
+    const { searchedPokemon, setSearchedPokemon } = useContext(SearchedPokemon);
+    const { cooldown, setCooldown } = useContext(Cooldown);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!cooldown) {
-            firstDataFetch(
+    const fetchPokemonData = async () => {
+        if (searchedPokemon && !cooldown) {
+            setCooldown(true);
+            await firstDataFetch(
                 searchedPokemon, 
                 url, 
                 setPokemonCounter, 
@@ -33,12 +35,16 @@ const Search = () => {
                 setLastPokemon,
                 pokemonData
             );
-            setCooldown(true);
-            setTimeout(() => {
-                setCooldown(false);
-            }, 5000);
+            setSearchedPokemon(""); 
+            setTimeout(() => setCooldown(false), 5000);
         }
     };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        fetchPokemonData(); 
+    };
+
 
     return (
         <div className="search-container">
@@ -56,7 +62,7 @@ const Search = () => {
                     style={{ background: !searchedPokemon || cooldown ? "gray" : "" }} 
                     type="submit"
                 >
-                    <i className="fa-brands fa-golang"></i>
+                    Search
                 </button>
             </form>
         </div>

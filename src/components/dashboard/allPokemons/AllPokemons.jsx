@@ -1,45 +1,51 @@
-import { useEffect, useState } from "react"
-import "./allPokemons.css"
+import { useContext, useEffect, useState } from "react";
+import "./allPokemons.css";
+import { useNavigate } from "react-router-dom";
+import SearchedPokemon from "../../../context/SearchedPokemon";
+import Cooldown from "../../../context/Cooldown";
 
 const AllPokemons = () => {
-    const [pokemonList, setPokemonList] = useState([])
+    const [pokemonList, setPokemonList] = useState([]);
+    const navigate = useNavigate();
+    const { setSearchedPokemon } = useContext(SearchedPokemon);
+    const {cooldown, setCooldown} = useContext(Cooldown);
 
-    const handlePokemonList = async() => {
-        try{
-            const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0",{
-                method: "GET",
-                headers:{
-                    "Content-Type": "application/json"
-                }
-            })
-            const data = await response.json()
-            console.log(response);
+    const handlePokemonList = async () => {
+        try {
+            const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0");
+            const data = await response.json();
             
-            if(!response.ok){
-                return alert("Error appeared: ". response.statusText)
-            }else{
-                setPokemonList(data.results)
+            if (response.ok) {
+                setPokemonList(data.results);
+            } else {
+                alert("Error appeared: " + response.statusText);
             }
-        }catch(error){
-            console.error("Error occured: ", error)
+        } catch (error) {
+            console.error("Error occurred: ", error);
         }
-    }
-
-    console.log(pokemonList);
-    
+    };
 
     useEffect(() => {
-        handlePokemonList()
-    },[])
-    return(
-        <>
+        handlePokemonList();
+    }, []);
+
+    return (
         <div className="pokemon-list">
-        {pokemonList && pokemonList.map((item, key) => 
-            (<button key={key}>{item.name}</button>)
-        )}
+            {pokemonList.map((item, key) => (
+                <button 
+                    onClick={() => {
+                        setSearchedPokemon(item.name);
+                        
+                        navigate("/search");
+                        
+                    }} 
+                    key={key}
+                >
+                    {item.name}
+                </button>
+            ))}
         </div>
-        </>
-    )
-}
+    );
+};
 
 export default AllPokemons;

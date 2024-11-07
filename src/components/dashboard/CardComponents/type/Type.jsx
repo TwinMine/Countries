@@ -1,6 +1,7 @@
 import HoverText from "../../../function/HoverText";
 
 const Type = ({cooldown, pokemonData, handlePokemonChange, setCooldown, languageText}) => {
+
     return(
         <>
         <div className="type-container">
@@ -22,8 +23,8 @@ const Type = ({cooldown, pokemonData, handlePokemonChange, setCooldown, language
                     }
                     className="swap-pokemon-button"
                     onClick={() => {
-                      handlePokemonChange(pokemonData.id - 1),
-                        setCooldown(true);
+                      handlePokemonChange(pokemonData.id - 1)
+                     
                     }}
                   >
                     <i className="fa-solid fa-circle-arrow-left"></i>
@@ -50,8 +51,8 @@ const Type = ({cooldown, pokemonData, handlePokemonChange, setCooldown, language
                     disabled={cooldown || pokemonData.id >= 1025}
                     className="swap-pokemon-button"
                     onClick={() => {
-                      handlePokemonChange(pokemonData.id + 1),
-                        setCooldown(true);
+                      handlePokemonChange(pokemonData.id + 1)
+                       
                     }}
                   >
                     <i className="fa-solid fa-circle-arrow-right"></i>

@@ -1,3 +1,5 @@
+let count = 0
+
 async function firstDataFetch(
   searchedPokemon,
   url,
@@ -12,6 +14,13 @@ async function firstDataFetch(
 ) {
 
   console.log(searchedPokemon);
+
+  if(count > 0){
+    count--
+    return;
+  }
+
+  count++
   
   if (!searchedPokemon) {
     return alert("Type in your favorite Pokémon");

@@ -14,6 +14,8 @@ import LastPokemon from "../../../../context/LastPokemon";
 import { typeFunction } from "../../../function/TypeFunction";
 import Type from "../type/Type";
 import CardPictures from "../card/cardPictures/CardPictures";
+import SearchedPokemon from "../../../../context/SearchedPokemon";
+import Cooldown from "../../../../context/Cooldown";
 
 
 const url = import.meta.env.VITE_URL;
@@ -25,8 +27,8 @@ const Card = () => {
   const { pokemonCounter, setPokemonCounter } = useContext(PokemonCounter);
   const { lastPokemon, setLastPokemon } = useContext(LastPokemon);
   const [language, setLanguage] = useState("en");
-  const [searchedPokemon, setSearchedPokemon] = useState("");
-  const [cooldown, setCooldown] = useState(true);
+  const {searchedPokemon, setSearchedPokemon} = useContext(SearchedPokemon);
+  const {cooldown, setCooldown} = useContext(Cooldown);
   const [pokemonSound, setPokemonSound] = useState(pokemonData?.cries);
   const [volume, setVolume] = useState(0.2);
 
@@ -137,6 +139,7 @@ const Card = () => {
       setLastPokemon,
       pokemonData
     );
+    setCooldown(true)
   };
 
   return (

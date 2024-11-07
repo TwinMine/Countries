@@ -9,6 +9,8 @@ import LastPokemon from './context/LastPokemon'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import CardComponents from './components/dashboard/CardComponents/CardComponents'
 import AllPokemons from "./components/dashboard/allPokemons/AllPokemons"
+import SearchedPokemon from './context/SearchedPokemon'
+import Cooldown from "./context/Cooldown"
 
 function App() {
   const [pokemonData, setPokemonData] = useState([])
@@ -16,7 +18,8 @@ function App() {
   const [secondDataFetch, setSecondDataFetch] = useState([])
   const [pokemonCounter, setPokemonCounter] = useState(0)
   const [lastPokemon, setLastPokemon] = useState([]);
-
+  const [searchedPokemon, setSearchedPokemon] = useState("");
+  const [cooldown, setCooldown] = useState(false)
 
   const router = createBrowserRouter([
     {
@@ -39,6 +42,8 @@ function App() {
 
   return (
     <>
+    <Cooldown.Provider value={{cooldown, setCooldown}}>
+    <SearchedPokemon.Provider value={{searchedPokemon, setSearchedPokemon}}>
     <LastPokemon.Provider value={{lastPokemon, setLastPokemon}}>
     <PokemonCounter.Provider value={{pokemonCounter, setPokemonCounter}}>
     <SecondDataFetch.Provider value={{secondDataFetch, setSecondDataFetch}}>
@@ -50,6 +55,8 @@ function App() {
     </SecondDataFetch.Provider>
     </PokemonCounter.Provider>
     </LastPokemon.Provider>
+    </SearchedPokemon.Provider>
+    </Cooldown.Provider>
     </>
   )
 }
